@@ -1,0 +1,32 @@
+name: CI
+
+# Fast, hermetic checks that pass on a fresh clone: no secrets, no network,
+# no deployed instance. The weekly grounding eval lives in eval-weekly.yml
+# because it needs a live deployment and Redis credentials.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: typecheck + tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Unit tests
+        run: npm test

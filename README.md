@@ -1,6 +1,10 @@
 # RACHEL · Your 24/7 Retail Intelligence Analyst
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![CI](https://img.shields.io/github/actions/workflow/status/juliedemoyer/rachel-retail-analyst/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/juliedemoyer/rachel-retail-analyst/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
+[![Built with Claude Code](https://img.shields.io/badge/built%20with-Claude%20Code-d97757?style=flat-square)](https://claude.com/claude-code)
+[![Last commit](https://img.shields.io/github/last-commit/juliedemoyer/rachel-retail-analyst?style=flat-square&label=updated)](https://github.com/juliedemoyer/rachel-retail-analyst/commits/main)
+[![Live](https://img.shields.io/badge/live-rachelretail.com-0b7285?style=flat-square)](https://www.rachelretail.com)
 
 **Live at [www.rachelretail.com](https://www.rachelretail.com)**
 

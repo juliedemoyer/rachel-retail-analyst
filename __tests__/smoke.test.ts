@@ -12,11 +12,12 @@ vi.mock("@clerk/nextjs/server", () => ({ clerkClient: vi.fn(), auth: vi.fn() }))
 // ── /api/health ───────────────────────────────────────────────────────────────
 
 describe("GET /api/health", () => {
-  it("returns ok:true with a numeric timestamp", async () => {
+  it("returns status:ok with the agent name and a numeric timestamp", async () => {
     const { GET } = await import("../app/api/health/route");
     const res = await GET();
     const body = await res.json();
-    expect(body.ok).toBe(true);
+    expect(body.status).toBe("ok");
+    expect(body.agent).toBe("rachel");
     expect(typeof body.ts).toBe("number");
     expect(res.status).toBe(200);
   });
@@ -62,11 +63,14 @@ describe("GET /api/cron — auth guard", () => {
 describe("isAdminEmail", () => {
   beforeEach(() => {
     vi.stubEnv("ADMIN_EMAIL", "admin@your-domain.example");
+    // lib/admin reads process.env into a module-level const at load time, so
+    // the stub only takes effect if the module is re-evaluated after it.
+    vi.resetModules();
   });
 
   it("returns true for the configured admin email (case-insensitive)", async () => {
     const { isAdminEmail } = await import("../lib/admin");
-    expect(isAdminEmail("Admin@Example.com")).toBe(true);
+    expect(isAdminEmail("Admin@Your-Domain.Example")).toBe(true);
     expect(isAdminEmail("admin@your-domain.example")).toBe(true);
   });
 
