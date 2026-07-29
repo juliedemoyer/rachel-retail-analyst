@@ -1,0 +1,283 @@
+/* LVMH bespoke profile — ported 1:1 from public/app.html.
+   All selectors scoped under .profile-page so class names from the
+   static HTML keep working without leaking into the rest of the app. */
+
+.profile-page {
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --bg: #EDE7D9;
+  --surface: #E8E2D5;
+  --surface-2: #E4DDD0;
+  --border: rgba(28, 25, 20, 0.10);
+  --border-strong: rgba(28, 25, 20, 0.18);
+  --text: #1C1914;
+  --text-mid: #5A5347;
+  --text-dim: #8A8278;
+  --rust: #B34E2A;
+  --rust-dim: rgba(179, 78, 42, 0.12);
+  --green: #2d6a4f;
+  --green-dim: rgba(45, 106, 79, 0.08);
+  --amber: #C48A2A;
+  --amber-dim: rgba(196, 138, 42, 0.12);
+
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.profile-page *,
+.profile-page *::before,
+.profile-page *::after { box-sizing: border-box; }
+
+.profile-page h1,
+.profile-page h2,
+.profile-page h3,
+.profile-page h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+  color: var(--text);
+  letter-spacing: -.01em;
+}
+.profile-page h1 { font-size: 2.25rem; line-height: 1.1; letter-spacing: -.02em; }
+.profile-page h2 { font-size: 1.5rem; line-height: 1.2; }
+.profile-page h3 { font-size: 1.125rem; }
+.profile-page h4 {
+  font-size: .9rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--text-mid);
+  font-weight: 500;
+}
+.profile-page p { margin: 0 0 .75rem; }
+.profile-page a { color: inherit; text-decoration: none; }
+.profile-page a:hover { color: var(--rust); }
+.profile-page button {
+  font-family: inherit; cursor: pointer; border: none; background: none; color: inherit;
+}
+.profile-page input,
+.profile-page select,
+.profile-page textarea {
+  font-family: inherit; font-size: 14px; color: var(--text);
+}
+
+/* Page wrapper */
+.profile-page .page { padding: 2rem 2rem 4rem; max-width: 1280px; margin: 0 auto; }
+
+/* Buttons */
+.profile-page .btn {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  padding: .75rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.profile-page .btn-primary { background: var(--rust); color: #fff; }
+.profile-page .btn-primary:hover { background: #8B3A1C; color: #fff; }
+.profile-page .btn-secondary {
+  background: transparent; color: var(--text); border-color: var(--border-strong);
+}
+.profile-page .btn-secondary:hover { border-color: var(--text); color: var(--text); }
+.profile-page .btn-secondary.is-priority {
+  border-color: var(--rust); color: var(--rust); background: var(--rust-dim);
+}
+.profile-page .btn-sm { font-size: 10px; padding: .45rem .85rem; }
+
+/* Cards */
+.profile-page .card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 4px; padding: 1.5rem;
+}
+.profile-page .card h3 { margin-bottom: .5rem; }
+
+/* Profile chrome */
+.profile-page .profile-header {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 2rem; align-items: start; margin-bottom: 2rem;
+}
+.profile-page .profile-breadcrumbs {
+  font-size: 12px; color: var(--text-mid); margin-bottom: .75rem;
+  font-family: var(--font-display); letter-spacing: .06em;
+}
+.profile-page .profile-title { font-size: 2.25rem; line-height: 1; margin-bottom: .5rem; }
+.profile-page .profile-actions { display: flex; gap: .5rem; align-items: flex-start; }
+
+/* Score pill */
+.profile-page .score-pill {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .5rem 1rem; background: var(--rust-dim); border: 1px solid var(--rust);
+  border-radius: 100px; font-family: var(--font-display);
+  font-size: 12px; font-weight: 600; color: var(--rust);
+}
+.profile-page .score-pill.perf { background: var(--rust-dim); border-color: var(--rust); color: var(--rust); }
+.profile-page .score-pill.narrative { background: var(--amber-dim); border-color: var(--amber); color: var(--amber); }
+.profile-page .score-pill.silent {
+  background: rgba(45, 106, 79, 0.1); border-color: var(--green); color: var(--green);
+}
+
+/* Trend strip */
+.profile-page .trend-strip {
+  display: flex; gap: 1rem; padding: 1rem 1.5rem; background: var(--surface-2);
+  border: 1px solid var(--border); border-radius: 4px;
+  margin-bottom: 2rem; flex-wrap: wrap;
+}
+.profile-page .trend-strip .t-item { font-size: 13px; color: var(--text-mid); }
+.profile-page .trend-strip .t-item strong {
+  color: var(--text); font-family: var(--font-display); font-weight: 600;
+}
+.profile-page .trend-strip .t-item .up { color: var(--green); font-weight: 600; }
+
+/* Two-column profile grid */
+.profile-page .profile-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+
+/* Field cards */
+.profile-page .field-card {
+  padding: 1.25rem 1.5rem; border: 1px solid var(--border);
+  background: var(--surface); border-radius: 4px; margin-bottom: 1rem;
+}
+.profile-page .field-card .f-label {
+  font-family: var(--font-display); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--text-mid); margin-bottom: .5rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.profile-page .field-card .f-value {
+  font-size: 15px; font-weight: 400; line-height: 1.55;
+}
+.profile-page .field-card .f-value strong {
+  font-family: var(--font-display); font-weight: 600;
+}
+
+/* Chips */
+.profile-page .source-chip {
+  display: inline-flex; align-items: center; gap: .35rem;
+  padding: .15rem .6rem; background: var(--bg); border: 1px solid var(--border-strong);
+  border-radius: 100px; font-family: var(--font-display);
+  font-size: 10px; letter-spacing: .06em;
+  color: var(--text-mid); margin-top: .5rem; margin-right: .35rem; cursor: pointer;
+}
+.profile-page .source-chip:hover { border-color: var(--rust); color: var(--rust); }
+
+.profile-page .evidence-tier {
+  font-family: var(--font-display); font-size: 9px; letter-spacing: .14em;
+  text-transform: uppercase; padding: .15rem .45rem; border-radius: 100px;
+}
+.profile-page .evidence-tier.confirmed { background: var(--green-dim); color: var(--green); }
+.profile-page .evidence-tier.estimated { background: var(--amber-dim); color: var(--amber); }
+
+/* Maison strip */
+.profile-page .maison-strip { margin-top: 2rem; }
+.profile-page .maison-strip .maison {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
+  padding: 1rem 1.25rem; margin-bottom: .5rem;
+  display: grid; grid-template-columns: 140px 1fr auto; gap: 1rem;
+  align-items: center; font-size: 13px;
+}
+.profile-page .maison .m-brand {
+  font-family: var(--font-display); font-weight: 600; font-size: 13px;
+}
+.profile-page .maison .m-init { color: var(--text-mid); }
+
+/* Ask Rachel embed (kept for visual parity even if input is removed) */
+.profile-page .ask-rachel-embed {
+  background: #1C1914; color: rgba(255, 255, 255, 0.9);
+  border-radius: 4px; padding: 1.5rem; margin-top: 1.5rem;
+}
+.profile-page .ask-rachel-embed h4 { color: rgba(255, 255, 255, 0.55); }
+.profile-page .ask-rachel-embed .suggest {
+  display: flex; flex-direction: column; gap: .35rem; margin-top: .75rem;
+}
+.profile-page .ask-rachel-embed .suggest a {
+  font-size: 13px; color: rgba(255, 255, 255, 0.72);
+  padding: .6rem .85rem; background: rgba(255, 255, 255, 0.05); border-radius: 4px;
+}
+.profile-page .ask-rachel-embed .suggest a:hover {
+  background: rgba(255, 255, 255, 0.1); color: #fff;
+}
+.profile-page .ask-rachel-embed .ask-cta {
+  margin-top: 1rem; display: flex; justify-content: flex-start;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .profile-page .profile-header { grid-template-columns: 1fr; }
+  .profile-page .profile-grid { grid-template-columns: 1fr; }
+  .profile-page .maison-strip .maison { grid-template-columns: 1fr; }
+  .profile-page .page { padding: 1.25rem 1rem 3rem; }
+}
+
+/* Profile accordions (Part 1 / Part 2) */
+.profile-page .profile-accordion {
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  margin-bottom: 1.25rem;
+  background: var(--surface);
+}
+
+.profile-page .profile-accordion-summary {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  list-style: none;
+  border-radius: 4px;
+  user-select: none;
+}
+.profile-page .profile-accordion-summary::-webkit-details-marker { display: none; }
+.profile-page .profile-accordion[open] > .profile-accordion-summary {
+  border-bottom: 1px solid var(--border);
+  border-radius: 4px 4px 0 0;
+}
+.profile-page .profile-accordion-summary:hover { background: var(--surface-2); border-radius: 4px; }
+.profile-page .profile-accordion[open] > .profile-accordion-summary:hover {
+  border-radius: 4px 4px 0 0;
+}
+
+.profile-page .acc-code {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--rust);
+  font-weight: 700;
+}
+.profile-page .acc-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -.01em;
+}
+.profile-page .acc-suffix {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+.profile-page .acc-chevron {
+  font-size: 20px;
+  color: var(--text-mid);
+  transition: transform .2s ease;
+  display: inline-block;
+  transform: rotate(-90deg);
+  flex-shrink: 0;
+}
+.profile-page .profile-accordion[open] .acc-chevron {
+  transform: rotate(0deg);
+}
+
+.profile-page .profile-accordion-body {
+  padding: 1.25rem 1.5rem;
+}
+
+/* Wireframe annotations stay hidden */
+.profile-page .wf-note { display: none !important; }

@@ -1,0 +1,46 @@
+{
+  "_comment": "The scoring model. Rachel places every company on two axes derived only from public investor documents, then reads off a quadrant. Rewrite the anchors for your own market: the axes are the opinionated part, and they should be yours.",
+
+  "axes": {
+    "rhetoric": {
+      "label": "Board AI rhetoric warmth",
+      "range": [1, 5],
+      "anchors": {
+        "1": "No AI mention in the last earnings call or annual report",
+        "2": "Passing mentions, no dedicated narrative",
+        "3": "Dedicated AI commentary, no quantified commitment",
+        "4": "Strategic AI narrative with named tools or partners",
+        "5": "AI framed as a core moat, CEO-led, quantified"
+      }
+    },
+    "production": {
+      "label": "Confirmed production AI use cases",
+      "range": [0, 5],
+      "anchors": {
+        "0": "No confirmed production tools",
+        "1-4": "That many named, in-production tools publicly confirmed",
+        "5": "Five or more confirmed tools, or tools spanning multiple categories as core to the business"
+      }
+    }
+  },
+
+  "compositeFormula": "(rhetoric + production) / 2, used for ranking only. The quadrant is the primary read.",
+
+  "quadrants": {
+    "performer": "High rhetoric, confirmed production. Named tools live, quantified ROI. Building compounding advantage.",
+    "narrative_led": "High rhetoric, few confirmed cases. Named programmes and commitments, thin on shipped output.",
+    "silentBuilder": "Low rhetoric, confirmed production. Doing without telling. Underrated.",
+    "not_visible": "Low rhetoric, no confirmed cases. AI absent or incidental in investor materials."
+  },
+
+  "evidenceClasses": {
+    "confirmed": "Named in an earnings transcript, vendor case study, or official press release. Cite the URL.",
+    "estimated": "Strong indirect signal such as a partner listing or job posting. Always labelled as estimated.",
+    "noEvidence": "Absence is disclosed, never hidden and never guessed. Absence is also a signal."
+  },
+
+  "freshness": {
+    "pulseMaxAgeDays": 7,
+    "staleAccountDays": 30
+  }
+}

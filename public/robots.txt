@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /$
+Disallow: /app
+Disallow: /app/
+Disallow: /api/
+Disallow: /sign-in
+Disallow: /sign-out
+Disallow: /landing.html
+Disallow: /app.html
+
+# AI crawlers — public homepage only, product and API off-limits
+User-agent: GPTBot
+Allow: /$
+Disallow: /
+
+User-agent: ClaudeBot
+Allow: /$
+Disallow: /
+
+User-agent: PerplexityBot
+Allow: /$
+Disallow: /
+
+User-agent: Google-Extended
+Allow: /$
+Disallow: /
+
+Sitemap: https://your-domain.example/sitemap.xml

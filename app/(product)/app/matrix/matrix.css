@@ -1,0 +1,14 @@
+/* /app/matrix — mobile responsive overrides. Inline padding-bottom on
+   the chart container needs to grow on small screens so chips don't
+   pile on top of each other. */
+
+@media (max-width: 640px) {
+  .matrix-chart {
+    padding-bottom: 110% !important; /* taller, near-square chart */
+  }
+  /* Axis labels become unreadable below ~360px wide; soften them */
+  .matrix-chart .absolute.bottom-2,
+  .matrix-chart .absolute.left-2 {
+    font-size: 9px !important;
+  }
+}

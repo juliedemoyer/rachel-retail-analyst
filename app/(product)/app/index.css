@@ -1,0 +1,305 @@
+/* /app index — legacy public/app.html #index styles, ported verbatim so
+   the page mirrors the landing aesthetic the user remembers (black hero
+   with radial accents, cream cards, only Ask Rachel in rust). */
+
+.index-hero{
+  padding:2.5rem 3rem 2rem;
+  border-bottom:1px solid var(--color-border);
+  background:#080808;color:#fff;position:relative;overflow:hidden;
+}
+.index-hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(800px 500px at 85% -10%, rgba(179,78,42,0.20), transparent 60%),
+    radial-gradient(600px 400px at 5% 120%, rgba(179,78,42,0.10), transparent 60%);
+}
+.index-hero .ix-inner{position:relative;z-index:2;max-width:920px}
+.index-hero .ix-eyebrow{
+  font-family:var(--font-display);font-weight:500;font-size:.72rem;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,0.55);
+  display:inline-flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;
+}
+.index-hero .ix-eyebrow::before{
+  content:'';display:inline-block;width:1.5rem;height:1px;background:currentColor;flex-shrink:0;
+}
+.index-hero .ix-overline{
+  font-family:var(--font-body);font-weight:300;font-style:italic;
+  font-size:1rem;line-height:1.6;color:rgba(255,255,255,0.62);
+  max-width:48ch;margin:0 0 1.5rem;
+}
+.index-hero h1{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(2.6rem,5.5vw,4.6rem);
+  line-height:.96;letter-spacing:-0.03em;color:#fff;margin:0 0 1.25rem;
+  background:linear-gradient(140deg,#F0E6D3 20%,rgba(240,230,211,0.45) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.index-hero .ix-sub{
+  font-family:var(--font-body);font-weight:300;
+  font-size:1.02rem;line-height:1.75;color:rgba(255,255,255,0.72);
+  max-width:60ch;margin:0 0 1.75rem;
+}
+.index-hero .ix-ctas{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center}
+.index-hero .ix-cta-primary{
+  background:var(--color-rust);color:#fff;border:1px solid var(--color-rust);
+  border-radius:100px;padding:.85rem 1.6rem;
+  font-family:var(--font-display);font-weight:600;font-size:.72rem;
+  letter-spacing:.12em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;
+}
+.index-hero .ix-cta-primary:hover{background:var(--color-rust-deep);color:#fff;border-color:var(--color-rust-deep)}
+.index-hero .ix-cta-ghost{
+  background:transparent;color:rgba(255,255,255,0.78);
+  border:1px solid rgba(255,255,255,0.18);border-radius:100px;padding:.85rem 1.6rem;
+  font-family:var(--font-display);font-weight:600;font-size:.72rem;
+  letter-spacing:.12em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;
+}
+.index-hero .ix-cta-ghost:hover{color:#fff;border-color:rgba(255,255,255,0.38)}
+.index-hero .ix-cta-ghost kbd{
+  background:rgba(255,255,255,0.12);padding:.1rem .4rem;border-radius:3px;
+  font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:0;
+}
+.index-hero .ix-proof{
+  font-family:var(--font-display);font-size:.72rem;letter-spacing:.12em;
+  text-transform:uppercase;color:rgba(255,255,255,0.42);margin-top:1.75rem;
+}
+.index-hero .ix-proof b{color:#fff;font-weight:500}
+
+.index-section{padding:3rem 3rem 1rem;max-width:1280px;margin:0 auto}
+.index-section.last{padding-bottom:4rem}
+.ix-section-head{margin-bottom:1.75rem;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap}
+.ix-section-head .lead{max-width:60ch}
+.ix-section-head .eyebrow{
+  font-family:var(--font-display);font-size:.66rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--color-rust);font-weight:500;
+  margin-bottom:.5rem;
+}
+.ix-section-head h2{
+  font-family:var(--font-display);font-size:1.6rem;font-weight:600;
+  letter-spacing:-0.02em;line-height:1.15;color:var(--color-text);margin:0;
+}
+.ix-section-head .sub{margin-top:.4rem;color:var(--color-text-mid);font-size:.95rem;line-height:1.7}
+
+.start-here{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:1rem}
+@media(max-width:980px){.start-here{grid-template-columns:1fr}}
+.rachel-v2 .start-card,
+.start-card{
+  background:var(--color-surface);border:1px solid var(--color-border);border-radius:4px;
+  padding:1.6rem 1.5rem 1.4rem;display:flex;flex-direction:column;gap:.55rem;
+  transition:border-color .2s, transform .2s, box-shadow .2s;
+  position:relative;overflow:hidden;text-decoration:none;color:inherit;
+}
+.start-card:hover{border-color:var(--color-text);transform:translateY(-2px)}
+.start-card .step{
+  font-family:var(--font-display);font-size:.66rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--color-rust);font-weight:500;
+}
+.start-card h3{font-family:var(--font-display);font-weight:600;color:var(--color-text);font-size:1.2rem;letter-spacing:-0.015em;margin:.2rem 0 0;line-height:1.2}
+.start-card p{font-size:.9rem;color:var(--color-text-mid);line-height:1.65;flex:1;margin:0}
+.start-card .arr{
+  font-family:var(--font-display);font-weight:500;font-size:.72rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--color-rust);
+  display:inline-flex;align-items:center;gap:.5rem;margin-top:.5rem;
+}
+.start-card .arr i{transition:transform .2s ease;font-style:normal}
+.start-card:hover .arr i{transform:translateX(4px)}
+/* Featured start-card stays in cream/surface like the others — only the
+   pill is slightly stronger so the eye still finds it. */
+.start-card.featured .pill{background:rgba(179,78,42,0.18);color:var(--color-rust);font-weight:600}
+.start-card .pill{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-family:var(--font-display);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  background:rgba(179,78,42,0.10);color:var(--color-rust);
+  padding:.22rem .55rem;border-radius:100px;width:fit-content;font-weight:500;
+}
+
+.index-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+.rachel-v2 .index-card,
+.index-card{
+  background:var(--color-surface);border:1px solid var(--color-border);border-radius:4px;
+  padding:1.25rem 1.25rem 1.5rem;
+  display:flex;flex-direction:column;gap:.5rem;
+  transition:border-color .2s, transform .2s;
+  text-decoration:none;color:inherit;
+}
+.index-card:hover{border-color:var(--color-text);transform:translateY(-1px)}
+.index-card .num{font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.16em;color:var(--color-text-dim)}
+.index-card h3{font-family:var(--font-display);font-weight:600;font-size:1rem;color:var(--color-text);margin:0}
+.index-card p{font-size:13px;color:var(--color-text-mid);line-height:1.55;flex:1;margin:0}
+.index-card .route{display:none}
+.index-card.featured{background:var(--color-rust);border-color:var(--color-rust);color:#fff;position:relative;overflow:hidden}
+.index-card.featured:hover{border-color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(179,78,42,0.35)}
+.index-card.featured .num{color:rgba(255,255,255,0.7)}
+.index-card.featured h3{color:#fff;display:flex;align-items:center;gap:.5rem}
+.index-card.featured p{color:rgba(255,255,255,0.88)}
+.index-card.featured .sparkle{font-size:1.1rem;line-height:1}
+.index-card.featured .pill{
+  display:inline-block;font-family:var(--font-display);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;background:rgba(255,255,255,0.18);color:#fff;
+  padding:.2rem .5rem;border-radius:100px;margin-bottom:.35rem;width:fit-content;
+}
+
+/* Persona splitter */
+.persona-section { padding-top: 1.5rem; }
+.persona-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+.persona-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color .15s, box-shadow .15s, transform .15s;
+  display: flex;
+  flex-direction: column;
+}
+.persona-card:hover { border-color: var(--color-border-strong); }
+.persona-card.is-active {
+  border-color: var(--color-rust);
+  box-shadow: 0 0 0 1px var(--color-rust) inset;
+}
+.persona-pick {
+  background: transparent;
+  border: 0;
+  text-align: left;
+  width: 100%;
+  padding: 1.5rem 1.6rem 1.25rem;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+.persona-eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: .62rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin-bottom: .85rem;
+}
+.persona-card.is-active .persona-eyebrow { color: var(--color-rust); }
+.persona-pick h3 {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  margin: 0 0 .55rem;
+  color: var(--color-text);
+}
+.persona-pick p {
+  font-size: .92rem;
+  line-height: 1.55;
+  color: var(--color-text-mid);
+  margin: 0 0 .8rem;
+  max-width: 50ch;
+}
+.persona-promise {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--color-rust);
+  font-weight: 600;
+}
+.persona-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: .75rem 1.6rem 1.4rem;
+  border-top: 1px dashed var(--color-border);
+}
+.persona-links a {
+  font-family: var(--font-display);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  padding: .45rem .85rem;
+  text-decoration: none;
+  transition: border-color .15s, color .15s, background .15s;
+}
+.persona-links a:hover {
+  color: var(--color-rust);
+  border-color: var(--color-rust);
+  background: var(--color-bg);
+}
+.persona-card.is-active .persona-links a:first-child {
+  background: var(--color-rust);
+  border-color: var(--color-rust);
+  color: #fff;
+}
+
+/* Watchlist section header (above CompaniesShell on /app home) */
+.watchlist-section-head {
+  padding: 2.25rem 3rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.watchlist-eyebrow {
+  display: block;
+  font-family: var(--font-display);
+  font-size: .66rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--color-rust);
+  font-weight: 500;
+  margin-bottom: .5rem;
+}
+.watchlist-heading {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin: 0 0 .35rem;
+  max-width: 72ch;
+}
+.watchlist-sub {
+  font-size: .9rem;
+  color: var(--color-text-mid);
+  margin: 0;
+}
+
+/* ---------- Mobile responsive layout ---------- */
+
+@media (max-width: 860px) {
+  .index-hero {
+    padding: 3.25rem 1.1rem 1.75rem; /* extra top room for the floating menu button */
+  }
+  .index-hero h1 { font-size: clamp(2rem, 8vw, 2.6rem); }
+  .index-hero .ix-overline { font-size: .92rem; }
+  .index-hero .ix-sub { font-size: .95rem; line-height: 1.65; }
+  .index-hero .ix-ctas { gap: .5rem; }
+  .index-hero .ix-cta-primary,
+  .index-hero .ix-cta-ghost {
+    padding: .75rem 1.1rem;
+    font-size: .68rem;
+    width: 100%;
+    justify-content: center;
+  }
+  .index-hero .ix-proof { font-size: .66rem; line-height: 1.7; }
+
+  .index-section { padding: 2rem 1.1rem 1rem; }
+  .index-section.last { padding-bottom: 2.5rem; }
+  .ix-section-head h2 { font-size: 1.35rem; }
+  .ix-section-head .sub { font-size: .9rem; }
+
+  .start-here { grid-template-columns: 1fr; gap: .85rem; }
+  .index-grid { grid-template-columns: 1fr; gap: .85rem; }
+  .start-card { padding: 1.25rem 1.1rem 1.1rem; }
+  .index-card { padding: 1.1rem 1.05rem 1.25rem; }
+
+  .persona-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .persona-pick { padding: 1.25rem 1.15rem 1rem; }
+  .persona-pick h3 { font-size: 1.3rem; }
+  .persona-links { padding: .65rem 1.15rem 1.15rem; }
+}

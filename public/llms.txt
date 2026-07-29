@@ -1,0 +1,27 @@
+# Rachel
+
+> Open-source, vendor-neutral reference implementation of a grounded AI
+> research analyst for retail and consumer intelligence. MIT licensed.
+
+Rachel scores companies on two axes derived only from public investor
+documents: board AI rhetoric (1-5) and confirmed production AI use cases
+(0-5+). Every field carries a source URL and an evidence tier (confirmed or
+estimated). The scoring methodology is public and reproducible; see
+METHODOLOGY.md in the repository.
+
+## What this site contains
+
+- Quadrant classifications (performer, narrative_led, silent_builder,
+  not_visible, native) produced by the published rubric, frozen as a
+  point-in-time snapshot with sources on every claim
+- Vendor footprint data as disclosed in filings, case studies, and press
+- A demo mode (/app?demo=1) with an entirely fictional dataset
+
+## Corrections
+
+Company representatives: if a field is wrong or outdated, open an issue on
+the repository with a source. See CORRECTIONS.md.
+
+## Repository
+
+https://github.com/juliedemoyer/rachel-retail-analyst

@@ -1,0 +1,101 @@
+# Rachel — Operational Procedures (example)
+
+This file is optional. The deployed agent (`lib/agents/rachel.ts`, running via
+Vercel Cron) works without it: its system prompt is built from
+`config/profile.json` and it needs nothing else. This file is for a different
+use case, running **Claude Code interactively** against your own repo to do
+more open-ended work than the cron jobs are scoped for: a morning briefing,
+a weekly review, a deep dive on one company.
+
+If you do not use Claude Code interactively, delete this file. It changes
+nothing about how the deployed app behaves.
+
+Copy it to `CLAUDE.md` in your repo root and fill in the bracketed parts.
+
+---
+
+## Config source of truth
+
+Read `config/profile.json`, `config/watchlist.json`, and `config/scoring.json`
+before any analysis task. Do not hardcode a company list, a region, or scoring
+anchors into this file. Edit the JSON instead, so the deployed agent and any
+interactive session stay in sync.
+
+## The grounding rule applies here too
+
+Everything in [docs/AGENT.md](docs/AGENT.md) about citations and refusals holds
+in interactive sessions. If you cannot source a claim, say so and stop. An
+interactive session is not a licence to answer from training data.
+
+## Live API
+
+```
+GET  {NEXT_PUBLIC_APP_URL}/api/profiles      → all company profiles
+GET  {NEXT_PUBLIC_APP_URL}/api/profiles/{slug}
+GET  {NEXT_PUBLIC_APP_URL}/api/pulse         → the current pulse feed
+POST {NEXT_PUBLIC_APP_URL}/api/pulse/refresh → trigger a grounded pulse pass
+```
+
+Write endpoints require a Clerk session. Cron endpoints require `CRON_SECRET`.
+
+## Morning briefing (example structure)
+
+A reasonable shape for a daily interactive briefing, distinct from the
+automated pulse the cron job writes:
+
+1. **Overnight signal** — new pulse items since yesterday, deduplicated
+2. **Earnings today and next three days** — from the calendar, with what to
+   watch for in each
+3. **Quadrant moves** — any company whose score changed, and why
+4. **Stale profiles** — anything past `staleAccountDays` with a recommended
+   research action
+5. **What to do next** — one clear lead, not a menu of options
+
+Keep it readable in under two minutes.
+
+## Weekly review (example structure)
+
+1. Watchlist snapshot: totals by sector, quadrant distribution
+2. Top three signals of the week, with sources
+3. Stale accounts and the specific action for each
+4. Next week: three sequenced priorities
+
+## Adding a company
+
+Prefer the documented flow in [docs/ADDING-A-COMPANY.md](docs/ADDING-A-COMPANY.md)
+over hand-editing Redis. Author the Markdown file, validate, seed.
+
+## Model routing (interactive sessions)
+
+| Task | Model |
+|---|---|
+| Fetching and parsing JSON, filtering, rule-based work | Haiku |
+| Summarising a filing or a news set | Sonnet |
+| Synthesis, planning, anything requiring judgment | Sonnet |
+
+Default to the cheaper model for retrieval. Reserve larger models for judgment.
+
+## Cross-agent handoff (optional)
+
+If you run other agents alongside this one and have set `SPRINT_BOARD_URL`,
+post a task tagged `collab:<agent>` when your work produces something another
+agent should act on. Leave the env var unset and skip this section entirely.
+
+## End of day (optional)
+
+If you keep a Markdown notes vault and want a daily log, a minimal template:
+
+```markdown
+---
+date: YYYY-MM-DD
+---
+
+## Done today
+- [profiles updated, signals found, questions answered]
+
+## Open loops
+- [anything unresolved, with the company name and the source]
+
+## Tomorrow's priority
+- [the single most important next action]
+```

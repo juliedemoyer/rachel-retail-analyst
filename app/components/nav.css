@@ -1,0 +1,149 @@
+/* Sidebar styling ported from public/app.html .wireframe-sidebar so the
+   Next.js routes (/app/companies, /app/companies/[slug], /app/admin/*) share
+   the same chrome as the legacy hash-based /app shell. Scoped under
+   .rachel-sidebar to avoid leaking globals. */
+
+.rachel-sidebar {
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  width: 240px;
+  flex-shrink: 0;
+  height: 100vh;
+  overflow-y: auto;
+
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: 1.5rem 1.25rem;
+  font-family: var(--font-display);
+  font-size: 13px;
+  border-right: 1px solid var(--color-border);
+}
+
+.rachel-sidebar .brand {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -.01em;
+  margin-bottom: .15rem;
+  color: var(--color-text);
+}
+.rachel-sidebar .tag {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-text-mid);
+  margin-bottom: 1.75rem;
+}
+.rachel-sidebar h5 {
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  font-weight: 600;
+  margin: 1.5rem 0 .35rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+.rachel-sidebar h5:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 1.25rem;
+}
+.rachel-sidebar a {
+  display: block;
+  padding: .4rem .6rem;
+  margin: 1px -0.6rem;
+  color: var(--color-text);
+  border-radius: 4px;
+  font-size: 13px;
+  text-decoration: none;
+  transition: background .15s ease, color .15s ease;
+}
+.rachel-sidebar a:hover {
+  background: rgba(28, 25, 20, 0.05);
+  color: var(--color-text);
+}
+.rachel-sidebar a.active {
+  background: rgba(179, 78, 42, 0.14);
+  color: var(--color-text);
+}
+.rachel-sidebar .sub a {
+  padding-left: 1.5rem;
+  opacity: .7;
+  font-size: 12px;
+}
+.rachel-sidebar .sub a.active {
+  opacity: 1;
+}
+.rachel-sidebar .admin-link {
+  font-size: 11px;
+  opacity: .6;
+}
+
+.rachel-sidebar .user-row {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-text-mid);
+}
+
+/* ---------- Mobile drawer ---------- */
+
+.rachel-nav-toggle {
+  display: none;
+  position: fixed;
+  top: .65rem;
+  left: .65rem;
+  z-index: 60;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,.06);
+}
+.rachel-nav-toggle:active { transform: scale(.96); }
+
+.rachel-nav-scrim {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 18, 14, .45);
+  z-index: 40;
+}
+
+@media (max-width: 860px) {
+  .rachel-nav-toggle { display: inline-flex; }
+  .rachel-nav-scrim { display: block; }
+
+  .rachel-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: min(82vw, 300px);
+    z-index: 50;
+    transform: translateX(-105%);
+    transition: transform .22s ease;
+    box-shadow: 0 8px 28px rgba(0,0,0,.18);
+    padding-top: 3.5rem; /* clear the floating toggle button */
+  }
+  .rachel-sidebar.is-open { transform: translateX(0); }
+}

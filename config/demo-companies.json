@@ -1,0 +1,261 @@
+{
+  "_comment": "Demo data for ?demo=1. Every company below is invented. Any resemblance to a real business is coincidental, and none of these figures are real. Swap them freely, or delete the file and demo mode simply renders empty.",
+
+  "companies": [
+    {
+      "slug": "maison-lumiere",
+      "company": "Maison Lumière",
+      "ticker": "MLM.PA",
+      "sector": "Luxury & Beauty",
+      "city": "Paris",
+      "country": "FR",
+      "isGroup": true,
+      "revenueB": 41.2,
+      "currency": "€B",
+      "yoyPct": 6.4,
+      "opMarginPct": 22.1,
+      "employees": 88000,
+      "rhetoric": 5,
+      "production": 6,
+      "quadrant": "performer",
+      "framing": "moat",
+      "roiFigure": "18% uplift in online conversion",
+      "consumerProduct": "Lumière Atelier, an in-app styling assistant",
+      "vendors": ["Northcloud", "Vector Labs"],
+      "tools": [
+        { "name": "Atelier styling assistant", "category": "consumer" },
+        { "name": "Demand sensing for boutique replenishment", "category": "supply_chain" },
+        { "name": "Campaign copy generation", "category": "marketing" }
+      ],
+      "quote": {
+        "text": "AI is no longer a project inside this house. It is how the house runs.",
+        "speaker": "R. Delacroix",
+        "role": "Chief Executive Officer",
+        "date": "2026-02-11"
+      },
+      "notes": "Textbook performer. Rhetoric and shipped output move together, and the ROI figure is stated on the call rather than briefed to press."
+    },
+    {
+      "slug": "verdant-grocers",
+      "company": "Verdant Grocers",
+      "ticker": "VRD.AS",
+      "sector": "Grocery",
+      "city": "Amsterdam",
+      "country": "NL",
+      "revenueB": 63.8,
+      "currency": "€B",
+      "yoyPct": 2.1,
+      "opMarginPct": 4.0,
+      "employees": 214000,
+      "rhetoric": 2,
+      "production": 5,
+      "quadrant": "silent_builder",
+      "framing": "efficiency",
+      "consumerProduct": null,
+      "vendors": ["Northcloud"],
+      "tools": [
+        { "name": "Shelf-gap detection", "category": "ops" },
+        { "name": "Fresh-waste forecasting", "category": "supply_chain" },
+        { "name": "Dynamic promotion pricing", "category": "merchandising" },
+        { "name": "Warehouse slotting optimiser", "category": "supply_chain" }
+      ],
+      "notes": "The most underrated profile in the demo set. Four confirmed tools in production and almost no board narrative. Watch for a rhetoric jump at the next capital markets day."
+    },
+    {
+      "slug": "northwind-apparel",
+      "company": "Northwind Apparel",
+      "ticker": "NWA.L",
+      "sector": "Apparel & E-commerce",
+      "city": "Manchester",
+      "country": "UK",
+      "revenueB": 8.9,
+      "currency": "£B",
+      "yoyPct": -1.4,
+      "opMarginPct": 3.2,
+      "employees": 19500,
+      "rhetoric": 5,
+      "production": 1,
+      "quadrant": "narrative_led",
+      "framing": "moat",
+      "consumerProduct": "Fit Finder beta",
+      "vendors": ["Vector Labs", "Northcloud"],
+      "tools": [{ "name": "Fit Finder sizing beta", "category": "consumer" }],
+      "quote": {
+        "text": "Every part of this business will be reimagined around artificial intelligence.",
+        "speaker": "H. Osei",
+        "role": "Chief Executive Officer",
+        "date": "2026-03-04"
+      },
+      "notes": "Narrative-led, textbook case. Strongest AI language in the demo set, one confirmed tool, and it is still in beta. The gap between the narrative and the shipped list is the story."
+    },
+    {
+      "slug": "bellamy-and-co",
+      "company": "Bellamy & Co",
+      "ticker": "BLY.BR",
+      "sector": "CPG",
+      "city": "Brussels",
+      "country": "BE",
+      "revenueB": 12.6,
+      "currency": "€B",
+      "yoyPct": 3.8,
+      "opMarginPct": 14.4,
+      "employees": 31000,
+      "rhetoric": 3,
+      "production": 3,
+      "quadrant": "performer",
+      "framing": "efficiency",
+      "roiFigure": "€40m annualised supply-chain saving",
+      "consumerProduct": null,
+      "vendors": ["Northcloud"],
+      "tools": [
+        { "name": "Trade-promotion effectiveness model", "category": "analytics" },
+        { "name": "Packaging artwork generation", "category": "creative" },
+        { "name": "Route-to-market forecasting", "category": "supply_chain" }
+      ],
+      "notes": "Quietly competent. Quantified saving disclosed, no consumer-facing product, no interest in an AI narrative beyond the numbers."
+    },
+    {
+      "slug": "kaskade-beauty",
+      "company": "Kaskade Beauty",
+      "ticker": "KSK.DE",
+      "sector": "Luxury & Beauty",
+      "city": "Hamburg",
+      "country": "DE",
+      "revenueB": 5.4,
+      "currency": "€B",
+      "yoyPct": 9.2,
+      "opMarginPct": 16.8,
+      "employees": 12400,
+      "rhetoric": 4,
+      "production": 3,
+      "quadrant": "performer",
+      "framing": "moat",
+      "consumerProduct": "Shade-match camera tool",
+      "vendors": ["Vector Labs"],
+      "tools": [
+        { "name": "Shade-match camera tool", "category": "consumer" },
+        { "name": "Ingredient claim checker", "category": "security" },
+        { "name": "Influencer brief drafting", "category": "marketing" }
+      ],
+      "notes": "Smallest company in the set and the fastest mover. Consumer tool is genuinely live rather than a pilot."
+    },
+    {
+      "slug": "orbit-commerce",
+      "company": "Orbit Commerce",
+      "ticker": "ORB.ST",
+      "sector": "Apparel & E-commerce",
+      "city": "Stockholm",
+      "country": "SE",
+      "isAINative": true,
+      "revenueB": 3.1,
+      "currency": "€B",
+      "yoyPct": 21.5,
+      "opMarginPct": 1.9,
+      "employees": 6800,
+      "rhetoric": 5,
+      "production": 8,
+      "quadrant": "native",
+      "framing": "moat",
+      "roiFigure": "AI-attributed contribution not separated: the platform is the model",
+      "consumerProduct": "Whole storefront is model-ranked",
+      "vendors": ["Vector Labs", "Northcloud"],
+      "tools": [
+        { "name": "Model-ranked storefront", "category": "consumer" },
+        { "name": "Returns-risk scoring", "category": "ops" },
+        { "name": "Automated merchandising", "category": "merchandising" },
+        { "name": "Fraud detection", "category": "security" },
+        { "name": "Support deflection agent", "category": "ops" }
+      ],
+      "notes": "Renders off-matrix. Scoring a business whose core product is a model on the same two axes as a grocer flatters nobody, so it sits outside the quadrants."
+    },
+    {
+      "slug": "steppe-foods",
+      "company": "Steppe Foods",
+      "ticker": "STP.MC",
+      "sector": "CPG",
+      "city": "Madrid",
+      "country": "ES",
+      "isPrivate": true,
+      "revenueB": 2.2,
+      "currency": "€B",
+      "yoyPct": 1.1,
+      "opMarginPct": 7.5,
+      "employees": 5200,
+      "rhetoric": 1,
+      "production": 0,
+      "quadrant": "not_visible",
+      "framing": "not_mentioned",
+      "consumerProduct": null,
+      "vendors": [],
+      "tools": [],
+      "notes": "No AI language in the annual report and no confirmed tools. Absence is disclosed rather than guessed at, and absence is a finding."
+    },
+    {
+      "slug": "halcyon-sportswear",
+      "company": "Halcyon Sportswear",
+      "ticker": "HLC.MI",
+      "sector": "Sports & Outdoor",
+      "city": "Milan",
+      "country": "IT",
+      "revenueB": 6.7,
+      "currency": "€B",
+      "yoyPct": 4.6,
+      "opMarginPct": 11.2,
+      "employees": 15800,
+      "rhetoric": 2,
+      "production": 2,
+      "quadrant": "silent_builder",
+      "framing": "cost_reduction",
+      "consumerProduct": null,
+      "vendors": ["Northcloud"],
+      "tools": [
+        { "name": "Line-plan demand model", "category": "merchandising" },
+        { "name": "Material sourcing optimiser", "category": "supply_chain" }
+      ],
+      "notes": "Two confirmed tools, both internal, both mentioned once in a sustainability appendix rather than the main deck."
+    }
+  ],
+
+  "pulse": [
+    {
+      "headline": "Verdant Grocers extends fresh-waste forecasting to all 1,900 stores",
+      "category": "ai_product",
+      "source": "Verdant Grocers FY26 Q1 trading update",
+      "soWhat": "So what: the quietest company in the set now has the widest deployment. Ask why the board still will not talk about it.",
+      "relevantAccounts": ["verdant-grocers"],
+      "ageHours": 6
+    },
+    {
+      "headline": "Northwind Apparel names first Chief AI Officer, Fit Finder still in beta",
+      "category": "market_move",
+      "source": "Northwind Apparel press release",
+      "soWhat": "So what: leadership signal without a shipping signal. Track whether Fit Finder leaves beta before the next results.",
+      "relevantAccounts": ["northwind-apparel"],
+      "ageHours": 20
+    },
+    {
+      "headline": "Maison Lumière reports 18% online conversion uplift attributed to Atelier",
+      "category": "earnings",
+      "source": "Maison Lumière FY25 results call",
+      "soWhat": "So what: one of very few quantified AI ROI figures stated on a call rather than briefed to press. Use it as the benchmark others get measured against.",
+      "relevantAccounts": ["maison-lumiere"],
+      "ageHours": 30
+    },
+    {
+      "headline": "EU AI Act transparency obligations begin applying to consumer recommendation systems",
+      "category": "regulatory",
+      "source": "Official Journal summary",
+      "soWhat": "So what: hits Orbit Commerce hardest, since ranking is the product. Everyone else has a disclosure question, not a redesign question.",
+      "relevantAccounts": ["orbit-commerce", "maison-lumiere"],
+      "ageHours": 44
+    },
+    {
+      "headline": "Bellamy & Co discloses €40m annualised saving from supply-chain models",
+      "category": "earnings",
+      "source": "Bellamy & Co FY25 annual report",
+      "soWhat": "So what: efficiency framing with a real number beats moat framing without one. Cite this when a board asks what good looks like.",
+      "relevantAccounts": ["bellamy-and-co"],
+      "ageHours": 62
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+The company dossiers in this directory (data/companies/*.md) are a dataset,
+licensed separately from the code.
+
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+You may share and adapt this data, including commercially, provided you give
+attribution to the rachel-retail-analyst project and indicate any changes.
+
+Notes that travel with the license:
+
+- Every factual field derives from the public source cited on that field.
+  The underlying filings and press releases remain the property and
+  responsibility of their publishers; this license covers the extracted,
+  structured dataset and its annotations, not the source documents.
+- Scores are the mechanical output of the rubric in ../../METHODOLOGY.md
+  applied to those sources, frozen as of July 2026. If you redistribute the
+  data, keep the date stamps: an undated score is a different, stronger, and
+  unsupported claim.
+- Nothing in this dataset is investment advice, and no listed company or
+  vendor has paid to appear or to change anything.
+
+The application code in this repository is separately licensed under MIT
+(see ../../LICENSE).

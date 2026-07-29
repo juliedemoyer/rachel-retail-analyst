@@ -1,0 +1,227 @@
+/* ──────────────────────────────────────────────────────────────────
+   Rachel v2 — Design tokens aligned to your-design-system/DESIGN-SYSTEM.md
+   Locked in Phase 0. Every new component must inherit from here.
+
+   System signature: sharp structural containers (4px), round pills
+   (100px), flat depth via borders only, rust #B34E2A accent, Rachel
+   is sage #5E8A56, warm #EDE7D9 canvas.
+
+   Do NOT add: gradients on surfaces, shadows on cards, rounded-xl on
+   layout containers, dark mode, glassmorphism, emoji in chrome.
+   ──────────────────────────────────────────────────────────────── */
+
+@import "tailwindcss";
+
+@theme {
+  /* ── Surfaces ──────────────────────────────────────────────── */
+  --color-bg:        #ede7d9;   /* page canvas */
+  --color-surface:   #e8e2d5;   /* cards, panels */
+  --color-surface-2: #e4ddd0;   /* inputs, secondary panels */
+
+  /* ── Borders ───────────────────────────────────────────────── */
+  --color-border:        rgba(28,25,20,0.10);
+  --color-border-strong: rgba(28,25,20,0.18);
+
+  /* ── Text ──────────────────────────────────────────────────── */
+  --color-text:     #1c1914;
+  --color-text-mid: #5a5347;
+  --color-text-dim: #8a8278;
+
+  /* ── Primary accent — rust ─────────────────────────────────── */
+  --color-rust:      #b34e2a;
+  --color-rust-dim:  rgba(179,78,42,0.12);
+  --color-rust-dim2: rgba(179,78,42,0.05);
+  --color-rust-deep: #8b3a1c;
+
+  /* ── Rachel agent — sage ───────────────────────────────────── */
+  --color-sage:       #5e8a56;
+  --color-sage-light: #7aa66e;
+
+  /* ── Success / confirmed ───────────────────────────────────── */
+  --color-green:     #2d6a4f;
+  --color-green-dim: rgba(45,106,79,0.07);
+
+  /* ── Leader / lagging bands (Pillar 4b) ────────────────────── */
+  --color-leader:  #4a6741;
+  --color-middle:  #d4c5a9;
+  --color-notvisible: #a0564a;
+
+  /* ── Vendor accents — desaturated (Pillar 5g) ──────────────── */
+  --color-vendor-microsoft: #5a4e8a;
+  --color-vendor-google:    #8b7e4e;
+  --color-vendor-anthropic: #a87155;
+
+  /* ── Typography (wired in (v2)/layout.tsx via next/font) ───── */
+  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-body:    var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:    var(--font-jetbrains), "SFMono-Regular", Menlo, monospace;
+
+  /* ── Geometry ──────────────────────────────────────────────── */
+  --radius-sm:   3px;
+  --radius:      4px;       /* structural — cards, panels, buttons */
+  --radius-pill: 100px;     /* interactive pills, tags, filter chips */
+
+  /* ── Elevation — flat. Borders carry depth, not shadows. ───── */
+  --shadow-float: 0 2px 8px rgba(28,25,20,0.08);
+}
+
+/* ── Global base ────────────────────────────────────────────────── */
+.rachel-v2 {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Grain texture — 4% opacity, fixed, non-interactive */
+.rachel-v2::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Headlines — Space Grotesk display weight */
+.rachel-v2 h1,
+.rachel-v2 h2,
+.rachel-v2 h3 {
+  font-family: var(--font-display);
+  color: var(--color-text);
+  letter-spacing: -0.025em;
+}
+
+/* Mono — numerals, tokens, timestamps */
+.rachel-v2 .mono,
+.rachel-v2 code,
+.rachel-v2 kbd {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Links */
+.rachel-v2 a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--color-border-strong);
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 0.15s ease;
+}
+.rachel-v2 a:hover {
+  text-decoration-color: var(--color-rust);
+}
+
+/* ── Section label (eyebrow) — short rule prefix ───────────────── */
+.rachel-v2 .label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}
+.rachel-v2 .label::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 1px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── Cards ─────────────────────────────────────────────────────── */
+.rachel-v2 .card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+.rachel-v2 .card:hover {
+  border-color: var(--color-border-strong);
+}
+/* Rust sweep — left-to-right on hover */
+.rachel-v2 .card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--color-rust);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.rachel-v2 .card:hover::after {
+  transform: scaleX(1);
+}
+/* Dashboard card variant — rust top-border */
+.rachel-v2 .card-dashboard {
+  border-top: 2px solid var(--color-rust);
+}
+
+/* ── Buttons ───────────────────────────────────────────────────── */
+.rachel-v2 .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  padding: 0.6rem 1.25rem;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  border: none;
+}
+.rachel-v2 .btn-primary {
+  background: var(--color-rust);
+  color: #fff;
+}
+.rachel-v2 .btn-primary:hover { background: var(--color-rust-deep); }
+
+.rachel-v2 .btn-ghost {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-dim);
+}
+.rachel-v2 .btn-ghost:hover {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+/* ── Pills / filter chips ──────────────────────────────────────── */
+.rachel-v2 .pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 0.2rem 0.7rem;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  transition: all 0.15s ease;
+}
+.rachel-v2 .pill:hover,
+.rachel-v2 .pill.active {
+  border-color: var(--color-rust);
+  color: var(--color-rust);
+}
+
+/* ── Navigation ────────────────────────────────────────────────── */
+.rachel-v2 nav {
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(14px);
+  background: rgba(237,231,217,0.88);
+}

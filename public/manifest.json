@@ -1,0 +1,10 @@
+{
+  "name": "Rachel \u2014 Retail Intelligence Analyst",
+  "short_name": "Rachel",
+  "description": "Open-source retail and consumer intelligence dashboard",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": []
+}

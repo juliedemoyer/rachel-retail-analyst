@@ -1,0 +1,1609 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#EDE7D9">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Rachel Retail, The AI Intelligence Database for Consumer &amp; Retail</title>
+<meta name="description" content="Vendor-neutral intelligence on AI adoption across EMEA retail and consumer brands. Track LVMH, Kering, Inditex, Carrefour and 50+ companies in one place.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://your-domain.example/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rachel Retail">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://your-domain.example/">
+<meta property="og:title" content="Rachel Retail, The AI Intelligence Database for Consumer &amp; Retail">
+<meta property="og:description" content="Vendor-neutral intelligence on AI adoption across EMEA retail and consumer brands.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rachel Retail, The AI Intelligence Database for Consumer &amp; Retail">
+<meta name="twitter:description" content="Vendor-neutral intelligence on AI adoption across EMEA retail and consumer brands.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Rachel Retail",
+  "applicationCategory": "BusinessApplication",
+  "description": "Vendor-neutral intelligence on AI adoption across EMEA retail and consumer brands.",
+  "url": "https://your-domain.example",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "potentialAction": {
+    "@type": "UseAction",
+    "target": "https://your-domain.example/sign-in"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rachel Retail",
+    "url": "https://your-domain.example"
+  }
+}
+</script>
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="init capture alias identify resetopt_out_capturingopt_in_capturing has_opted_out_capturing has_opted_in_capturing get_distinct_id reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+// Analytics is opt-in. This is a static file, so it cannot read env vars:
+// paste your own PostHog *project* key below to enable it. Use the public
+// phc_ project key (Project settings → API keys), never a phx_ personal API
+// key — anything in this file is readable by every visitor.
+// Leave the placeholder as-is and analytics stays off.
+var POSTHOG_KEY = "phc_YOUR_PROJECT_KEY";
+
+if (POSTHOG_KEY.indexOf("YOUR_PROJECT_KEY") === -1) {
+  posthog.init(POSTHOG_KEY,{
+    api_host:"https://eu.i.posthog.com",
+    person_profiles:"identified_only",
+    capture_pageview:false,
+    capture_pageleave:true,
+    autocapture:false,
+    persistence:"memory"
+  });
+  posthog.capture("$pageview",{$current_url:window.location.href,pathname:"/"});
+  document.addEventListener("click",function(e){
+    var a=e.target.closest("a[href]");
+    if(!a)return;
+    var href=a.getAttribute("href");
+    if(href==="/sign-in"){
+      posthog.capture(href==="/sign-in"?"sign_in_click":"get_access_click",{location:a.className||"nav"});
+    }
+  });
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;1,300&display=swap">
+<style>
+:root{
+  --font-display:'Space Grotesk',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,sans-serif;
+
+  --bg:#EDE7D9;
+  --surface:#E8E2D5;
+  --surface-2:#E4DDD0;
+  --border:rgba(28,25,20,0.10);
+  --border-strong:rgba(28,25,20,0.18);
+  --text:#1C1914;
+  --text-mid:#5A5347;
+  --text-dim:#8A8278;
+
+  --rust:#B34E2A;
+  --rust-dim:rgba(179,78,42,0.12);
+  --rust-deep:#8B3A1C;
+  --green:#2d6a4f;
+  --green-dim:rgba(45,106,79,0.07);
+  --amber:#C48A2A;
+
+  --dark-bg:#080808;
+  --dark-surface:#0f0f0f;
+  --dark-border:rgba(255,255,255,0.07);
+  --dark-border-strong:rgba(255,255,255,0.14);
+  --dark-muted:rgba(255,255,255,0.42);
+  --dark-mid:rgba(255,255,255,0.68);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  font-weight:300;
+  font-size:16px;
+  line-height:1.85;
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.04;pointer-events:none;z-index:9999;
+}
+
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;margin:0;color:var(--text)}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+
+/* Cursor glow */
+.cursor-glow{
+  position:fixed;width:700px;height:700px;border-radius:50%;
+  pointer-events:none;z-index:1;
+  background:radial-gradient(circle,rgba(179,78,42,0.09) 0%,transparent 68%);
+  transform:translate(-50%,-50%);
+  transition:left 1s cubic-bezier(.17,.67,.3,1),top 1s cubic-bezier(.17,.67,.3,1);
+  left:-500px;top:-500px;
+}
+
+/* Containers */
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+@media (max-width:768px){.wrap{padding:0 20px}}
+
+/* Section label eyebrow */
+.section-label{
+  font-family:var(--font-display);
+  font-weight:500;
+  font-size:.72rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--text-mid);
+  display:inline-flex;align-items:center;gap:.75rem;
+}
+.section-label::before{
+  content:'';display:inline-block;width:1.5rem;height:1px;background:currentColor;flex-shrink:0;
+}
+.section-label.on-dark{color:var(--dark-mid)}
+
+/* Buttons */
+.btn-primary,.btn-secondary,.btn-ghost{
+  font-family:var(--font-display);
+  font-weight:600;font-size:.72rem;line-height:1;
+  letter-spacing:.12em;text-transform:uppercase;
+  border-radius:100px;padding:.85rem 1.75rem;
+  display:inline-flex;align-items:center;gap:.5rem;
+  border:1px solid transparent;
+  transition:background .15s ease,color .15s ease,border-color .15s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--rust);color:#fff;border-color:var(--rust)}
+.btn-primary:hover{background:var(--rust-deep);border-color:var(--rust-deep)}
+.btn-secondary{background:transparent;color:var(--text-dim);border-color:var(--border-strong)}
+.btn-secondary:hover{color:var(--text);border-color:rgba(28,25,20,0.30)}
+.btn-secondary.on-dark{color:var(--dark-mid);border-color:var(--dark-border-strong)}
+.btn-secondary.on-dark:hover{color:#fff;border-color:rgba(255,255,255,.35)}
+.btn-ghost{background:transparent;color:var(--text);padding:.65rem 1.25rem}
+.btn-ghost:hover{color:var(--rust)}
+
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ============ MODAL ============ */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--bg);border:1px solid var(--border-strong);border-radius:4px;width:100%;max-width:540px;padding:36px 40px;position:relative;transform:translateY(16px);transition:transform .3s ease}
+.modal-overlay.open .modal{transform:none}
+.modal-close{position:absolute;top:14px;right:16px;background:transparent;border:none;color:var(--text-dim);font-size:1.4rem;cursor:pointer;line-height:1;padding:4px 8px}
+.modal-close:hover{color:var(--text)}
+.modal h3{font-family:var(--font-display);font-weight:600;font-size:1.25rem;color:var(--text);letter-spacing:-0.02em;margin-bottom:5px}
+.modal .m-sub{color:var(--text-mid);font-size:.86rem;margin-bottom:22px;line-height:1.55}
+.persona-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:20px}
+.persona-card{border:1px solid var(--border-strong);border-radius:4px;padding:13px 12px;cursor:pointer;transition:border-color .15s,background .15s;background:var(--surface)}
+.persona-card:hover{border-color:var(--rust);background:var(--surface-2)}
+.persona-card.selected{border-color:var(--rust);background:rgba(179,78,42,.07)}
+.persona-card .pc-t{font-family:var(--font-display);font-weight:600;font-size:.82rem;color:var(--text);margin-bottom:4px}
+.persona-card .pc-s{color:var(--text-mid);font-size:.73rem;line-height:1.45;font-style:italic}
+.modal-fields{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.modal-fields input,.modal-fields textarea{background:var(--surface);border:1px solid var(--border-strong);border-radius:4px;padding:.72rem .9rem;color:var(--text);font-family:var(--font-body);font-size:.88rem;font-weight:300;width:100%}
+.modal-fields textarea{resize:none;min-height:70px;line-height:1.5}
+.modal-fields input::placeholder,.modal-fields textarea::placeholder{color:var(--text-dim)}
+.modal-fields input:focus,.modal-fields textarea:focus{outline:none;border-color:var(--rust)}
+.modal-note{color:var(--text-dim);font-size:.72rem;letter-spacing:.06em;text-align:center;margin-top:8px}
+@media(max-width:520px){.persona-grid{grid-template-columns:1fr}}
+/* ── Four-reason grid (section 5) ── */
+.reasons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+@media(max-width:720px){.reasons{grid-template-columns:1fr}}
+.reason{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:24px 22px}
+.reason h4{font-family:var(--font-display);font-size:.92rem;font-weight:600;margin-bottom:8px;letter-spacing:-0.01em}
+.reason p{font-size:.88rem;color:var(--text-mid);line-height:1.65}
+
+/* ============ NAV ============ */
+nav.top{
+  position:sticky;top:0;z-index:50;
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  background:rgba(237,231,217,0.88);
+}
+nav.top .inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+}
+.logo{
+  font-family:var(--font-display);font-weight:600;font-size:.95rem;
+  letter-spacing:.22em;color:var(--text);
+  display:flex;align-items:center;gap:.55rem;
+}
+.logo-mark{
+  width:18px;height:18px;border-radius:4px;
+  background:var(--rust);display:inline-block;position:relative;
+}
+.logo-mark::after{
+  content:'';position:absolute;inset:4px;background:var(--bg);border-radius:1px;
+}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{
+  font-family:var(--font-display);font-weight:500;font-size:.72rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);
+  transition:color .15s ease;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-ctas{display:flex;gap:.6rem;align-items:center}
+@media (max-width:900px){.nav-links{display:none}}
+@media (max-width:560px){.nav-ctas .btn-secondary{display:none}}
+
+/* ============ HERO (dark) ============ */
+section.hero{
+  background:var(--dark-bg);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+  padding:80px 0 120px;
+}
+section.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(800px 500px at 80% -10%, rgba(179,78,42,0.14), transparent 60%),
+    radial-gradient(600px 400px at 10% 110%, rgba(179,78,42,0.08), transparent 60%);
+  pointer-events:none;
+}
+.hero .inner{position:relative;z-index:2}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.05fr 1fr;
+  gap:80px;
+  align-items:center;
+  margin-top:56px;
+}
+@media (max-width:980px){.hero-grid{grid-template-columns:1fr;gap:48px}}
+.hero .section-label{color:var(--dark-mid)}
+
+.hero-overline{
+  font-family:var(--font-body);font-weight:300;font-style:italic;
+  font-size:clamp(.95rem,1.2vw,1.05rem);
+  line-height:1.6;color:var(--dark-mid);
+  max-width:46ch;margin-bottom:28px;
+}
+.hero-overline span{display:block}
+.hero-overline span:last-child{color:rgba(255,255,255,.78);font-style:normal;font-weight:400;margin-top:4px}
+
+.hero-headline{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(3.2rem,7.5vw,6.4rem);
+  line-height:.93;letter-spacing:-0.03em;
+  margin:0 0 32px;
+  background:linear-gradient(140deg,#F0E6D3 20%,rgba(240,230,211,0.35) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{
+  font-size:clamp(1rem,1.3vw,1.12rem);
+  line-height:1.7;color:var(--dark-mid);
+  max-width:52ch;margin-bottom:28px;font-weight:300;
+}
+.hero-proof{
+  font-family:var(--font-display);
+  font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--dark-muted);
+  margin-bottom:40px;font-weight:400;
+}
+.hero-proof b{color:#fff;font-weight:500}
+.hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
+
+/* Hero stagger animations */
+.hero .stagger{opacity:0;transform:translateY(20px);transition:opacity .9s ease,transform .9s ease}
+.hero .stagger.visible{opacity:1;transform:none}
+
+/* Hero matrix card, RETAILER-CENTRIC */
+.matrix-card{
+  background:var(--dark-surface);
+  border:1px solid var(--dark-border);
+  border-radius:4px;
+  padding:24px 24px 20px;
+  position:relative;
+}
+.matrix-card .mc-head{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  margin-bottom:20px;gap:16px;
+  padding-bottom:16px;border-bottom:1px solid var(--dark-border);
+}
+.matrix-card .mc-title{
+  font-family:var(--font-display);font-weight:500;
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--dark-mid);
+}
+.matrix-card .mc-live{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--font-display);font-size:.66rem;letter-spacing:.14em;
+  text-transform:uppercase;color:#fff;
+  padding:.35rem .65rem;border-radius:100px;background:rgba(179,78,42,.15);
+  border:1px solid rgba(179,78,42,.35);
+}
+.mc-live .dot{width:6px;height:6px;border-radius:50%;background:var(--rust);box-shadow:0 0 0 0 rgba(179,78,42,.8);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(179,78,42,.6)}70%{box-shadow:0 0 0 8px rgba(179,78,42,0)}100%{box-shadow:0 0 0 0 rgba(179,78,42,0)}}
+
+/* Retailer rows, company name dominates, vendor chips are supporting */
+.retailer-list{display:flex;flex-direction:column}
+.retailer-row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:16px;align-items:center;
+  padding:14px 0;
+  border-bottom:1px solid var(--dark-border);
+  transition:background .2s ease;
+  position:relative;
+}
+.retailer-row:last-of-type{border-bottom:none}
+.retailer-row::before{
+  content:'';position:absolute;inset:0 -24px;
+  background:rgba(255,255,255,.02);opacity:0;transition:opacity .2s ease;
+  pointer-events:none;
+}
+.retailer-row:hover::before{opacity:1}
+
+.r-info{display:flex;flex-direction:column;gap:4px;min-width:0;position:relative;z-index:1}
+.r-name{
+  font-family:var(--font-display);font-weight:600;
+  color:#fff;font-size:1.18rem;letter-spacing:-0.02em;line-height:1.1;
+}
+.r-meta{
+  font-family:var(--font-body);font-size:.74rem;
+  color:var(--dark-muted);font-weight:300;letter-spacing:0;
+  display:flex;gap:10px;align-items:center;
+}
+.r-meta .sep{opacity:.4}
+.r-meta .rev{color:var(--dark-mid);font-variant-numeric:tabular-nums}
+
+.r-vendors{
+  display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;
+  position:relative;z-index:1;max-width:260px;
+}
+.vchip{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:5px 10px 5px 8px;border-radius:100px;
+  font-family:var(--font-display);font-weight:500;
+  font-size:.68rem;letter-spacing:.04em;
+  font-variant-numeric:tabular-nums;
+  border:1px solid transparent;
+  transition:all .2s ease;
+  white-space:nowrap;
+}
+.vchip .vc-dot{
+  width:7px;height:7px;border-radius:50%;flex-shrink:0;
+}
+.vchip .vc-name{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.vchip .vc-score{font-weight:600}
+.vchip.ms{background:rgba(179,78,42,.14);border-color:rgba(179,78,42,.28);color:#fff}
+.vchip.ms .vc-dot{background:var(--rust)}
+.vchip.gcp{background:rgba(217,158,94,.1);border-color:rgba(217,158,94,.22);color:#fff}
+.vchip.gcp .vc-dot{background:var(--amber)}
+.vchip.anth{background:transparent;border-color:rgba(255,255,255,.08);color:var(--dark-muted)}
+.vchip.anth .vc-dot{background:transparent;border:1px dashed rgba(255,255,255,.25);width:7px;height:7px;box-sizing:border-box}
+
+.retailer-row.more{
+  padding:16px 0 4px;
+  border-bottom:none;
+}
+.retailer-row.more .r-name{
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--dark-muted);font-weight:500;
+}
+.retailer-row.more .r-name b{color:#fff;font-weight:600}
+
+.mc-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:16px;padding-top:16px;border-top:1px solid var(--dark-border);
+  font-family:var(--font-display);font-size:.66rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dark-muted);
+}
+.mc-foot a{color:#fff}
+.mc-foot a:hover{color:var(--rust)}
+
+/* Mobile: vendor chips drop below retailer */
+@media (max-width:520px){
+  .retailer-row{grid-template-columns:1fr;gap:10px}
+  .r-vendors{justify-content:flex-start;max-width:100%}
+}
+
+/* Waitlist panel */
+.waitlist-panel{
+  margin-top:28px;background:var(--dark-surface);border:1px solid var(--dark-border);
+  border-radius:4px;padding:24px;display:none;
+}
+.waitlist-panel.open{display:block}
+.waitlist-panel h4{color:#fff;font-size:.95rem;margin-bottom:4px;font-weight:500}
+.waitlist-panel .sub{color:var(--dark-muted);font-size:.85rem;margin-bottom:16px}
+.waitlist-form{display:grid;grid-template-columns:1.3fr 1fr auto;gap:8px}
+.waitlist-form input,.waitlist-form select{
+  background:#000;border:1px solid var(--dark-border-strong);
+  border-radius:4px;padding:.75rem .9rem;color:#fff;font-family:var(--font-body);font-size:.9rem;font-weight:400;
+}
+.waitlist-form input::placeholder{color:var(--dark-muted)}
+.waitlist-form input:focus,.waitlist-form select:focus{outline:none;border-color:var(--rust)}
+@media (max-width:720px){.waitlist-form{grid-template-columns:1fr}}
+
+/* ============ SECTION base (light) ============ */
+section.light{padding:120px 0;position:relative;z-index:2}
+section.light .section-head{max-width:820px;margin-bottom:56px}
+.section-head h2{
+  font-family:var(--font-display);font-weight:600;
+  font-size:clamp(1.9rem,3.5vw,2.9rem);
+  letter-spacing:-0.025em;line-height:1.05;
+  margin-top:18px;
+  text-wrap:balance;
+}
+.section-head .sub{
+  margin-top:20px;font-size:1.02rem;line-height:1.75;color:var(--text-mid);
+  max-width:64ch;
+}
+
+/* Cards */
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:4px;
+  position:relative;overflow:hidden;transition:border-color .15s ease;
+}
+.card:hover{border-color:var(--border-strong)}
+.card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:var(--rust);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;
+}
+.card:hover::after{transform:scaleX(1)}
+
+/* Badges */
+.badge{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-family:var(--font-display);font-weight:500;font-size:.64rem;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:.3rem .65rem;border-radius:100px;
+}
+.badge.confirmed{color:var(--green);background:var(--green-dim)}
+.badge.estimated{color:var(--rust);background:var(--rust-dim)}
+.badge.none{color:var(--text-dim);background:rgba(28,25,20,.04);border:1px solid var(--border)}
+.badge.sector{color:var(--text-mid);background:transparent;border:1px solid var(--border)}
+
+/* ============ S2, Two-track ============ */
+.two-track{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:900px){.two-track{grid-template-columns:1fr}}
+.track{padding:40px 36px;display:flex;flex-direction:column;gap:20px;min-height:420px}
+.track .icon{
+  width:44px;height:44px;border:1px solid var(--border-strong);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;color:var(--rust);
+}
+.track h3{font-size:1.6rem;letter-spacing:-0.015em;line-height:1.1;margin-top:4px}
+.track p.body{color:var(--text-mid);font-size:.98rem;line-height:1.75}
+.track p.si-note{color:var(--text-dim);font-size:.82rem;line-height:1.65;margin:-4px 0 0;font-style:italic;padding-left:12px;border-left:2px solid var(--rust-dim)}
+.track p.si-note em{font-style:italic;color:var(--text-mid)}
+.track .whofor{
+  font-family:var(--font-display);font-size:.68rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--text-dim);line-height:1.9;
+  padding-top:16px;border-top:1px solid var(--border);
+}
+.track .spacer{flex:1}
+.track .cta-row{display:flex;align-items:center}
+.track a.inline-cta{
+  font-family:var(--font-display);font-weight:500;font-size:.75rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--rust);
+  display:inline-flex;align-items:center;gap:.6rem;
+}
+.track a.inline-cta:hover{color:var(--rust-deep)}
+.track a.inline-cta .arr{transition:transform .2s ease}
+.track a.inline-cta:hover .arr{transform:translateX(4px)}
+
+/* ============ S3, Vendor dimensions ============ */
+.dim-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.dim-grid{grid-template-columns:1fr}}
+.dim{padding:28px 24px 24px;display:flex;flex-direction:column;gap:14px}
+.dim-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.dim-head .vend{font-family:var(--font-display);font-weight:600;font-size:1rem;letter-spacing:-0.01em}
+.dim-head .vend.ms{color:var(--rust)}
+.dim-head .vend.gcp{color:var(--amber)}
+.dim-head .vend.anth{color:var(--text-dim)}
+.dim-head .idx{font-family:var(--font-display);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim)}
+.dim ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.dim li{
+  display:flex;gap:.75rem;align-items:baseline;
+  font-size:.92rem;color:var(--text);line-height:1.45;
+}
+.dim li .n{
+  font-family:var(--font-display);font-variant-numeric:tabular-nums;font-weight:500;
+  font-size:.75rem;color:var(--text-dim);min-width:22px;
+}
+
+/* Deep dive Tesco card */
+.deep{
+  margin-top:40px;background:var(--surface);border:1px solid var(--border);border-radius:4px;
+  display:grid;grid-template-columns:1fr 1.6fr;gap:0;overflow:hidden;
+}
+@media (max-width:900px){.deep{grid-template-columns:1fr}}
+.deep .dl{padding:36px 32px;border-right:1px solid var(--border);background:var(--surface-2)}
+@media (max-width:900px){.deep .dl{border-right:none;border-bottom:1px solid var(--border)}}
+.deep-co{font-family:var(--font-display);font-weight:600;font-size:2rem;letter-spacing:-0.02em;line-height:1}
+.deep-meta{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:12px}
+.deep-stats{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;border-top:1px solid var(--border);padding-top:24px}
+.deep-stat .k{font-family:var(--font-display);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);display:block;margin-bottom:2px}
+.deep-stat .v{font-family:var(--font-display);font-weight:500;font-size:1.05rem;font-variant-numeric:tabular-nums;color:var(--text)}
+.deep-maturity{margin-top:24px}
+.dots{display:inline-flex;gap:4px;vertical-align:middle}
+.dot-s{width:8px;height:8px;border-radius:50%;background:var(--text);display:inline-block}
+.dot-s.off{background:transparent;border:1px solid var(--border-strong)}
+
+.deep .dr{padding:32px;display:flex;flex-direction:column;gap:0}
+.vrow{padding:22px 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:start}
+.vrow:first-child{padding-top:0}
+.vrow:last-child{border-bottom:none;padding-bottom:0}
+.vrow .vname{font-family:var(--font-display);font-weight:600;font-size:1rem;min-width:130px}
+.vrow .vname.ms{color:var(--rust)}
+.vrow .vname.gcp{color:var(--amber)}
+.vrow .vname.anth{color:var(--text-dim)}
+.vrow .vscore{font-family:var(--font-display);font-variant-numeric:tabular-nums;font-weight:500;font-size:.85rem;color:var(--text-mid);margin-top:3px}
+.vrow .vscore b{color:var(--text);font-weight:600}
+.vrow .vbar{width:120px;height:3px;margin-top:8px;background:rgba(28,25,20,.06);border-radius:2px;overflow:hidden}
+.vrow .vbar i{display:block;height:100%;transform-origin:left}
+.vrow .vbar.ms i{background:var(--rust)}
+.vrow .vbar.gcp i{background:var(--amber)}
+.vrow .vbody{display:flex;flex-direction:column;gap:6px;font-size:.93rem;color:var(--text-mid);line-height:1.65}
+.vrow .vbody .prod{font-family:var(--font-display);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim)}
+.vrow .vbody q{font-style:italic;quotes:"\201C" "\201D";color:var(--text);font-weight:300}
+.vrow .vbody .src{font-family:var(--font-display);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-top:2px;display:inline-flex;gap:.35rem;align-items:center}
+.vrow .vbody .src i{display:inline-block;width:14px;height:14px;border-radius:50%;border:1px solid var(--border-strong);text-align:center;line-height:12px;font-size:.55rem;font-style:normal}
+.vrow .vmeta{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+
+/* ============ S4, Brand profile card ============ */
+.profile-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start}
+@media (max-width:900px){.profile-wrap{grid-template-columns:1fr}}
+.profile-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;
+}
+.profile-head{padding:24px 28px;border-bottom:1px solid var(--border);background:var(--surface-2);display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}
+.profile-head .ph-left{display:flex;gap:18px;align-items:center}
+.profile-logo{
+  width:56px;height:56px;border-radius:4px;background:var(--bg);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:-.02em;color:var(--text);
+}
+.profile-title h3{font-size:1.4rem;letter-spacing:-0.02em;font-weight:600;line-height:1.1}
+.profile-title .meta{font-family:var(--font-display);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-top:6px}
+.globe{width:14px;height:14px;border:1px solid var(--text-dim);border-radius:50%;display:inline-block;position:relative;vertical-align:middle;margin-right:6px}
+.globe::before,.globe::after{content:'';position:absolute;inset:0;border:1px solid var(--text-dim);border-radius:50%}
+.globe::before{transform:scaleX(.4)}
+.globe::after{transform:scaleY(.55) rotate(0);border-top:none;border-bottom:none}
+
+.profile-stats{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid var(--border)}
+.pstat{padding:18px 28px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.pstat:nth-child(2n){border-right:none}
+.pstat:nth-last-child(-n+2){border-bottom:none}
+.pstat .k{font-family:var(--font-display);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);margin-bottom:4px}
+.pstat .v{font-family:var(--font-display);font-weight:500;font-size:1.1rem;font-variant-numeric:tabular-nums;color:var(--text)}
+.pstat .v small{font-family:var(--font-body);font-size:.8rem;color:var(--text-dim);font-weight:300;margin-left:6px}
+.pstat.mat .v{display:flex;align-items:center;gap:10px}
+
+.profile-lens{padding:8px 28px}
+.lens{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid var(--border);align-items:baseline}
+.lens:last-child{border-bottom:none}
+.lens .lk{font-family:var(--font-display);font-weight:500;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-dim)}
+.lens .lv{font-size:.93rem;color:var(--text);line-height:1.6}
+.lens .lv q{font-style:italic;quotes:"\201C" "\201D";color:var(--text-mid);font-weight:300}
+
+.profile-actions{display:flex;gap:8px;padding:18px 28px;border-top:1px solid var(--border);background:var(--surface-2);flex-wrap:wrap}
+.profile-actions .btn-ghost{border:1px solid var(--border);border-radius:100px}
+.profile-actions .btn-ghost.primary{background:var(--rust);color:#fff;border-color:var(--rust)}
+.profile-actions .btn-ghost.primary:hover{background:var(--rust-deep);color:#fff;border-color:var(--rust-deep)}
+
+.profile-notes{padding:0 8px}
+.profile-notes h4{font-family:var(--font-display);font-size:1.1rem;font-weight:500;letter-spacing:-0.01em;margin-bottom:12px}
+.profile-notes p{color:var(--text-mid);font-size:.98rem;line-height:1.8;margin-bottom:14px}
+.profile-notes .all-link{
+  font-family:var(--font-display);font-weight:500;font-size:.75rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--rust);
+  display:inline-flex;align-items:center;gap:.6rem;margin-top:8px;
+}
+
+/* ============ S4.5, Why not just Google (split panel) ============ */
+.vs{
+  display:grid;grid-template-columns:1fr 1fr;
+  border:1px solid var(--border);border-radius:4px;overflow:hidden;
+  background:var(--surface);
+}
+@media (max-width:900px){.vs{grid-template-columns:1fr}}
+.vs-left{background:var(--dark-bg);color:#fff;padding:32px 28px;position:relative}
+.vs-right{background:var(--surface);padding:32px 28px;position:relative;border-left:1px solid var(--border)}
+@media (max-width:900px){.vs-right{border-left:none;border-top:1px solid var(--border)}}
+.vs-label{
+  font-family:var(--font-display);font-weight:500;font-size:.66rem;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--dark-muted);margin-bottom:20px;
+  display:flex;align-items:center;gap:.6rem;
+}
+.vs-label::before{content:'';width:1.5rem;height:1px;background:currentColor;flex-shrink:0}
+.vs-label.on-light{color:var(--text-dim)}
+
+/* SERP mock */
+.serp{
+  background:#111;border:1px solid rgba(255,255,255,.08);border-radius:4px;
+  padding:18px 18px 14px;font-family:var(--font-body);
+}
+.serp-bar{display:flex;align-items:baseline;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:14px;flex-wrap:wrap}
+.serp-logo{font-family:var(--font-body);font-weight:500;color:#4285F4;font-size:1rem;letter-spacing:-0.02em}
+.serp-q{
+  font-family:var(--font-body);color:#fff;font-size:.88rem;
+  padding:6px 14px;border-radius:100px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+}
+.serp-stats{font-size:.72rem;color:rgba(255,255,255,.4);margin-left:auto;font-variant-numeric:tabular-nums}
+.serp-hit{margin-bottom:14px}
+.serp-url{font-size:.72rem;color:rgba(255,255,255,.45);margin-bottom:3px}
+.serp-title{font-family:var(--font-body);font-size:.92rem;font-weight:400;color:#8ab4f8;margin-bottom:4px;line-height:1.3}
+.serp-snip{font-size:.78rem;color:rgba(255,255,255,.55);line-height:1.5}
+.serp-also{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}
+.serp-also .also-k{font-size:.72rem;color:rgba(255,255,255,.5);font-weight:500;margin-bottom:8px;font-family:var(--font-body)}
+.serp-also .also-q{font-size:.82rem;color:#8ab4f8;padding:4px 0}
+
+/* Structured answer card */
+.vs-card{background:var(--bg);border:1px solid var(--border-strong);border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.vc-head{display:flex;align-items:center;gap:12px}
+.vc-logo{width:40px;height:40px;border-radius:4px;background:var(--text);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:.85rem}
+.vc-name{font-family:var(--font-display);font-weight:600;font-size:1.2rem;letter-spacing:-0.01em;line-height:1}
+.vc-meta{font-family:var(--font-display);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-top:4px}
+.vc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.vc-stats .k{display:block;font-family:var(--font-display);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);margin-bottom:3px}
+.vc-stats .v{font-family:var(--font-display);font-weight:500;font-size:.98rem;font-variant-numeric:tabular-nums}
+.vc-vendors{display:flex;flex-direction:column;gap:10px}
+.vc-vendor{display:grid;grid-template-columns:110px 54px 1fr auto;gap:12px;align-items:center}
+.vc-v-name{font-family:var(--font-display);font-weight:600;font-size:.82rem;letter-spacing:-0.005em}
+.vc-v-name.ms{color:var(--rust)} .vc-v-name.gcp{color:var(--amber)} .vc-v-name.anth{color:var(--text-dim)}
+.vc-v-score{font-family:var(--font-display);font-variant-numeric:tabular-nums;font-size:.8rem;color:var(--text-mid)}
+.vc-v-score b{color:var(--text);font-weight:600}
+.vc-v-bar{height:3px;background:rgba(28,25,20,.06);border-radius:2px;overflow:hidden}
+.vc-v-bar i{display:block;height:100%}
+.vc-v-bar.ms i{background:var(--rust)}
+.vc-v-bar.gcp i{background:var(--amber)}
+.vc-foot{display:flex;justify-content:space-between;align-items:center;font-family:var(--font-display);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);padding-top:12px;border-top:1px solid var(--border);flex-wrap:wrap;gap:8px}
+.vc-stamp{color:var(--green);font-weight:600}
+
+.vs-note{margin-top:20px;font-size:.88rem;color:var(--text-mid);font-style:normal;font-weight:300;line-height:1.7;max-width:78ch;text-align:center;margin-left:auto;margin-right:auto}
+.vs-note em{color:var(--text);font-style:italic;font-weight:400}
+
+/* ============ S5, Earnings calendar ============ */
+.cal{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.cal-row{display:grid;grid-template-columns:120px 1fr auto;gap:16px;padding:11px 20px;align-items:center;border-bottom:1px solid var(--border);transition:background .15s ease}
+.cal-row:last-child{border-bottom:none}
+.cal-row:hover{background:var(--surface-2)}
+.cal-date{display:flex;align-items:baseline;gap:7px}
+.cal-date .d{font-family:var(--font-display);font-weight:600;font-size:1.1rem;font-variant-numeric:tabular-nums;letter-spacing:-0.02em;line-height:1}
+.cal-date .m{font-family:var(--font-display);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim)}
+.cal-co{font-family:var(--font-display);font-weight:500;font-size:.92rem}
+.cal-ev{font-family:var(--font-display);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);text-align:right}
+@media (max-width:720px){.cal-row{grid-template-columns:1fr;gap:8px}.cal-ev{text-align:left}}
+.cal-note{margin-top:18px;font-size:.87rem;color:var(--text-mid);font-style:italic;font-weight:300;max-width:70ch}
+
+.digest{
+  margin-top:32px;padding:36px 36px;
+  background:var(--surface-2);border:1px solid var(--border-strong);border-radius:4px;
+  display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.digest::before{
+  content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--rust);
+}
+@media (max-width:800px){.digest{grid-template-columns:1fr;padding:28px 26px}}
+.digest-kicker{font-family:var(--font-display);font-weight:500;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.digest-h{font-family:var(--font-display);font-weight:600;font-size:1.5rem;letter-spacing:-0.015em;line-height:1.1;color:var(--text)}
+.digest-body{margin-top:8px;font-size:.96rem;color:var(--text-mid);line-height:1.65;max-width:40ch}
+.digest-note{margin-top:6px;font-size:.8rem;color:var(--text-dim);font-style:italic;font-weight:300}
+.digest-form{display:grid;grid-template-columns:1fr auto;gap:8px;width:100%}
+.digest-form input{
+  background:var(--bg);border:1px solid var(--border-strong);border-radius:100px;
+  padding:.8rem 1.1rem;font-family:var(--font-body);font-size:.92rem;color:var(--text);
+}
+.digest-form input::placeholder{color:var(--text-dim)}
+.digest-form input:focus{outline:none;border-color:var(--rust)}
+.digest-form .btn-primary{white-space:nowrap}
+@media (max-width:520px){.digest-form{grid-template-columns:1fr}.digest-form .btn-primary{width:100%;justify-content:center}}
+.digest-thanks{
+  grid-column:1/-1;font-family:var(--font-display);font-size:.78rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--green);padding:.6rem 0;
+}
+
+/* ============ S6, Company grid ============ */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.chip{
+  font-family:var(--font-display);font-weight:500;font-size:.72rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--text-mid);
+  padding:.55rem 1.1rem;border-radius:100px;border:1px solid var(--border);
+  background:transparent;cursor:pointer;transition:all .15s ease;
+}
+.chip:hover{border-color:var(--border-strong);color:var(--text)}
+.chip.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+
+.co-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media (max-width:1100px){.co-grid{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:900px){.co-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.co-grid{grid-template-columns:repeat(2,1fr)}}
+.co{padding:20px 18px;display:flex;flex-direction:column;gap:10px;min-height:150px}
+.co-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:4px;
+  padding:20px 18px;display:flex;flex-direction:column;min-height:150px;
+  transition:border-color .15s ease;cursor:default;
+}
+.co-card:hover{border-color:var(--border-strong)}
+.co-logo{
+  width:40px;height:40px;border-radius:4px;background:var(--surface-2);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:600;font-size:.9rem;color:var(--text);
+}
+.co-name{font-family:var(--font-display);font-weight:500;font-size:.98rem;letter-spacing:-0.01em;line-height:1.15;margin-top:4px}
+.co-sector{font-family:var(--font-display);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim)}
+.co-bot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px;padding-top:10px;border-top:1px solid var(--border)}
+.co-bot .mat{font-family:var(--font-display);font-size:.68rem;letter-spacing:.1em;color:var(--text-dim);font-variant-numeric:tabular-nums}
+.co-updated{font-family:var(--font-display);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-top:6px;font-weight:400;opacity:.75}
+.dots-sm{display:inline-flex;gap:3px}
+.dots-sm i{width:6px;height:6px;border-radius:50%;background:var(--text);display:inline-block}
+.dots-sm i.off{background:transparent;border:1px solid var(--border-strong)}
+
+/* ============ S7, Methodology ============ */
+.method-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media (max-width:1100px){.method-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:720px){.method-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:460px){.method-grid{grid-template-columns:1fr}}
+.tile{padding:28px 24px;display:flex;flex-direction:column;gap:14px;min-height:220px}
+.tile .m-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--rust);border:1px solid var(--border);border-radius:4px}
+.tile h4{font-family:var(--font-display);font-weight:600;font-size:1.02rem;letter-spacing:-0.01em;line-height:1.3}
+.tile p{font-size:.93rem;color:var(--text-mid);line-height:1.7}
+
+/* ============ S8, Pricing ============ */
+.pricing{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;background:var(--surface)}
+@media (max-width:900px){.pricing{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.pricing{grid-template-columns:1fr}}
+.plan{padding:32px 28px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:16px;position:relative}
+.plan:last-child{border-right:none}
+@media (max-width:900px){.plan:nth-child(2){border-right:none}.plan:nth-child(1),.plan:nth-child(2){border-bottom:1px solid var(--border)}}
+.plan.featured{background:var(--surface-2)}
+.plan .pname{font-family:var(--font-display);font-weight:600;font-size:1.15rem;letter-spacing:-0.01em}
+.plan .pfeat{font-family:var(--font-display);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);position:absolute;top:16px;right:16px}
+.plan .pprice{font-family:var(--font-display);font-weight:600;font-size:2rem;letter-spacing:-0.03em;line-height:1;font-variant-numeric:tabular-nums}
+.plan .pprice small{font-family:var(--font-body);font-size:.78rem;color:var(--text-dim);font-weight:300;margin-left:4px;letter-spacing:0;text-transform:none}
+.plan ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border);padding-top:14px}
+.plan li{padding:10px 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:90px 1fr;gap:12px;font-size:.88rem;align-items:baseline}
+.plan li:last-child{border-bottom:none}
+.plan li .k{font-family:var(--font-display);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim)}
+.plan li .v{color:var(--text);line-height:1.4}
+.plan .p-cta{margin-top:auto;padding-top:12px}
+.plan .p-cta .btn-primary,.plan .p-cta .btn-secondary{width:100%;justify-content:center}
+
+.pricing-fine{margin-top:14px;font-size:.82rem;color:var(--text-dim);font-style:italic}
+
+.addons{
+  margin-top:24px;border-top:1px dashed var(--border-strong);padding-top:24px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+@media (max-width:800px){.addons{grid-template-columns:1fr}}
+.addon{padding:18px 20px;border:1px solid var(--border);border-radius:4px;background:var(--surface);display:flex;flex-direction:column;gap:6px}
+.addon .plus{font-family:var(--font-display);font-weight:500;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rust)}
+.addon .name{font-family:var(--font-display);font-weight:500;font-size:1rem;letter-spacing:-0.01em}
+.addon .price{font-family:var(--font-display);font-size:.82rem;color:var(--text-mid);font-variant-numeric:tabular-nums}
+
+/* ============ S9, About ============ */
+.about{max-width:720px}
+.about p{font-size:1.04rem;line-height:1.85;color:var(--text);margin-bottom:22px;font-weight:300}
+.about p:first-child::first-letter{
+  font-family:var(--font-display);font-weight:600;
+  float:left;font-size:3.6rem;line-height:.9;padding:4px 10px 0 0;color:var(--rust);
+}
+.about .sig{margin-top:24px;font-family:var(--font-display);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim)}
+.about .cta-row{margin-top:32px}
+
+/* ============ S10, FAQ ============ */
+.faq{max-width:880px;border-top:1px solid var(--border)}
+.qa{border-bottom:1px solid var(--border)}
+.qa summary{
+  list-style:none;cursor:pointer;padding:26px 0;
+  display:flex;justify-content:space-between;align-items:flex-start;gap:20px;
+  font-family:var(--font-display);font-weight:500;font-size:1.1rem;letter-spacing:-0.01em;color:var(--text);
+}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary:hover{color:var(--rust)}
+.qa .plusminus{
+  flex-shrink:0;width:18px;height:18px;position:relative;margin-top:6px;transition:transform .25s ease;
+}
+.qa .plusminus::before,.qa .plusminus::after{content:'';position:absolute;background:currentColor;left:50%;top:50%}
+.qa .plusminus::before{width:14px;height:1px;transform:translate(-50%,-50%)}
+.qa .plusminus::after{width:1px;height:14px;transform:translate(-50%,-50%);transition:transform .25s ease}
+.qa[open] .plusminus::after{transform:translate(-50%,-50%) scaleY(0)}
+.qa .answer{padding:0 0 28px;color:var(--text-mid);font-size:.98rem;line-height:1.8;max-width:72ch}
+
+/* ============ Footer ============ */
+footer{
+  background:var(--dark-bg);color:var(--dark-mid);
+  padding:80px 0 40px;position:relative;z-index:2;
+}
+footer .f-top{display:grid;grid-template-columns:2fr 3fr;gap:60px;padding-bottom:48px;border-bottom:1px solid var(--dark-border)}
+@media (max-width:800px){footer .f-top{grid-template-columns:1fr}}
+footer .f-logo{
+  font-family:var(--font-display);font-weight:600;color:#fff;font-size:1rem;letter-spacing:.22em;
+  display:flex;align-items:center;gap:.6rem;margin-bottom:16px;
+}
+footer .f-logo .logo-mark::after{background:var(--dark-bg)}
+footer .tagline{font-family:var(--font-display);font-size:1.15rem;color:#fff;line-height:1.4;letter-spacing:-0.01em;font-weight:400;max-width:32ch}
+footer .f-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media (max-width:600px){footer .f-nav{grid-template-columns:1fr 1fr}}
+footer .f-col h5{font-family:var(--font-display);font-weight:500;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dark-muted);margin-bottom:14px}
+footer .f-col a{display:block;font-size:.92rem;color:var(--dark-mid);padding:5px 0;transition:color .15s ease}
+footer .f-col a:hover{color:#fff}
+footer .f-bot{padding-top:32px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;font-size:.82rem;color:var(--dark-muted);line-height:1.65}
+footer .f-bot .disclaim{max-width:62ch}
+footer .f-bot .social{display:flex;gap:16px}
+footer .f-bot .social a{color:var(--dark-muted)}
+footer .f-bot .social a:hover{color:#fff}
+
+/* Utility arrows */
+.arr{display:inline-block;transition:transform .2s ease}
+.arr::before{content:'→'}
+
+/* Custom select styling */
+.sel{
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='rgba(255,255,255,0.5)' stroke-width='1'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+  padding-right:36px !important;
+}
+</style>
+</head>
+<body>
+
+<div class="cursor-glow"></div>
+
+<!-- ==================== NAV ==================== -->
+<nav class="top">
+  <div class="wrap inner">
+    <a href="#" class="logo"><span class="logo-mark"></span>RACHEL RETAIL</a>
+    <div class="nav-links">
+      <a href="#two-track">Who it's for</a>
+      <a href="#companies">Companies</a>
+      <a href="#methodology">Methodology</a>
+      <a href="#opensource">Run your own</a>
+      <a href="#about">About</a>
+    </div>
+    <div class="nav-ctas">
+      <a href="/sign-in" class="nav-signin" style="color:var(--text-mid);font-size:.9rem;text-decoration:none;margin-right:18px">Sign in</a>
+      <a href="https://github.com/juliedemoyer/rachel-retail-analyst" class="btn-primary">View on GitHub</a>
+<a href="/app?demo=1" class="btn-primary" style="background:transparent;border:1px solid currentColor">Try the demo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== SECTION 1, HERO ==================== -->
+<section class="hero">
+  <div class="wrap inner">
+    <span class="section-label stagger">Rachel Retail · AI Intelligence for Consumer &amp; Retail</span>
+
+    <div class="hero-grid" style="grid-template-columns:1fr;max-width:100%">
+      <div>
+        <p class="hero-overline stagger" style="margin-top:36px">
+          <span>Every earnings call. Every investor deck. Every AI signal buried in a 200-page annual report.</span>
+          <span>Humanly impossible to track. Until now.</span>
+        </p>
+
+        <h1 class="hero-headline stagger">Your team brings the relationship. Rachel brings the context.</h1>
+
+        <p class="hero-sub stagger">
+          Most intelligence tells you what tech is installed. We tell you what AI strategy the CEO committed to on the last earnings call, which use cases are live in production, and the industry pulse behind the moves, for every major EMEA consumer &amp; retail company. Updated as earnings drop. Sources cited.
+        </p>
+
+        <p class="hero-proof stagger">
+          <b>150+</b> investor reports · <b>50+</b> companies profiled · Updated on <b>earnings day</b> · Growing to <b>300+</b>
+        </p>
+
+        <div class="hero-ctas stagger">
+          <a href="https://github.com/juliedemoyer/rachel-retail-analyst" class="btn-primary">View on GitHub</a>
+          <a href="#companies" class="btn-secondary on-dark">Browse the watchlist</a>
+        </div>
+        <p class="hero-proof stagger" style="margin-top:14px;opacity:.65">Currently onboarding in cohorts of 10</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 2, TWO-TRACK ==================== -->
+<section class="light" id="two-track">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">§ 01 · Who it's for</span>
+      <h2>One platform. Two front doors.</h2>
+    </div>
+
+    <div class="two-track">
+      <div class="card track reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1" y="1" width="8" height="8" stroke="currentColor"/><rect x="13" y="1" width="8" height="8" stroke="currentColor"/><rect x="1" y="13" width="8" height="8" stroke="currentColor"/><rect x="13" y="13" width="8" height="8" stroke="currentColor" fill="currentColor" fill-opacity=".15"/></svg>
+        </div>
+        <span class="section-label" style="font-size:.66rem">For AI Solution GTM &amp; System Integrators</span>
+        <h3>GTM context intelligence</h3>
+        <p class="body">See which companies disclose real AI production, which lead with narrative, and what the filings actually commit to. Vendor footprints, earnings commitments, AI maturity, and org signals, mapped across EMEA retail from public sources.</p>
+
+        <div style="margin-top:16px;border:1px solid var(--border);border-radius:4px;overflow:hidden">
+          <div style="display:flex;gap:14px;padding:10px 14px;border-bottom:1px solid var(--border);align-items:flex-start">
+            <span style="font-family:var(--font-display);font-weight:600;font-size:.7rem;color:var(--rust);flex-shrink:0;padding-top:2px">01</span>
+            <span style="font-size:.85rem;color:var(--text-mid);line-height:1.5">Paste up to 100 company names or tickers.</span>
+          </div>
+          <div style="display:flex;gap:14px;padding:10px 14px;border-bottom:1px solid var(--border);align-items:flex-start">
+            <span style="font-family:var(--font-display);font-weight:600;font-size:.7rem;color:var(--rust);flex-shrink:0;padding-top:2px">02</span>
+            <span style="font-size:.85rem;color:var(--text-mid);line-height:1.5">Rachel maps AI maturity, vendor white space, earnings commitments.</span>
+          </div>
+          <div style="display:flex;gap:14px;padding:10px 14px;align-items:flex-start">
+            <span style="font-family:var(--font-display);font-weight:600;font-size:.7rem;color:var(--rust);flex-shrink:0;padding-top:2px">03</span>
+            <span style="font-size:.85rem;color:var(--text-mid);line-height:1.5">Walk into every meeting ahead of procurement.</span>
+          </div>
+        </div>
+
+        <p style="margin-top:14px;font-size:.78rem;font-family:var(--font-display);font-weight:500;color:var(--rust);display:inline-flex;align-items:center;gap:6px"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor"/><path d="M6 3v3l2 1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>First account brief in under 2 minutes.</p>
+
+        <div class="spacer"></div>
+        <div class="cta-row"><a href="/app?demo=1" class="inline-cta">Try the demo <span class="arr">→</span></a></div>
+      </div>
+
+      <div class="card track reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor"/><path d="M14 14l6 6" stroke="currentColor" stroke-linecap="round"/></svg>
+        </div>
+        <span class="section-label" style="font-size:.66rem">For Consumer &amp; Retail professionals</span>
+        <h3>Brand intelligence profiles</h3>
+        <p class="body">Structured, comparable profiles for every EMEA retailer and consumer brand that matters. Financials, AI maturity, vendor relationships, org signals, earnings quotes. <strong>See where your brand sits in the sector distribution.</strong></p>
+
+        <div style="margin-top:12px;padding:10px 14px;background:rgba(196,138,42,0.07);border-left:2px solid var(--amber);border-radius:0 3px 3px 0">
+          <p style="font-size:.82rem;color:var(--text-mid);line-height:1.55;margin:0">EU AI Act pressure is real. Know what your sector peers are disclosing, before your board asks.</p>
+        </div>
+
+        <p style="margin-top:14px;font-size:.78rem;font-family:var(--font-display);font-weight:500;color:var(--rust);display:inline-flex;align-items:center;gap:6px"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor"/><path d="M6 3v3l2 1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>Build a watchlist of 5 to 50 companies. Tracked in your daily digest.</p>
+
+        <div class="spacer"></div>
+        <div class="cta-row"><a href="/app?demo=1" class="inline-cta">Try the demo <span class="arr">→</span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 3, WATCHLIST ==================== -->
+<section class="light" id="companies" style="padding-top:40px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">§ 02 · The watchlist</span>
+      <h2>The world's largest EMEA retailers &amp; CPGs. Tracked. Structured. Cited.</h2>
+      <p class="sub">A frozen July 2026 snapshot, published as a worked example of the methodology. Fork the repo to track your own market.</p>
+    </div>
+
+    <div class="filters reveal" id="filterBtns">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="retail">Retail</button>
+      <button class="chip" data-filter="cpg">CPG</button>
+      <button class="chip" data-filter="grocery">Grocery &amp; Hypermarket</button>
+      <button class="chip" data-filter="luxury">Luxury &amp; Beauty</button>
+      <button class="chip" data-filter="ecommerce">E-commerce</button>
+      <button class="chip" data-filter="sports">Sports &amp; Outdoor</button>
+      <button class="chip" data-filter="apparel">Apparel &amp; Home</button>
+    </div>
+
+    <div class="co-grid reveal" id="coGrid">
+<noscript><ul style="display:none" aria-hidden="true">
+<li>ASOS (E-commerce, UK)</li><li>Carrefour (Grocery, France)</li><li>IKEA / Ingka (Apparel &amp; Home, Sweden)</li><li>H&amp;M Group (Apparel &amp; Home, Sweden)</li><li>Nestlé (CPG/FMCG, Switzerland)</li><li>L'Oréal (Luxury &amp; Beauty, France)</li><li>AB InBev (CPG/FMCG, Belgium)</li><li>Estée Lauder (Luxury &amp; Beauty, US)</li><li>Nespresso (CPG/FMCG, Switzerland)</li><li>LVMH (Luxury &amp; Beauty, France)</li><li>Richemont (Luxury &amp; Beauty, Switzerland)</li><li>Kering (Luxury &amp; Beauty, France)</li><li>Unilever (CPG/FMCG, UK)</li><li>Inditex / Zara (Apparel &amp; Home, Spain)</li><li>Ahold Delhaize (Grocery, Netherlands)</li><li>Adidas (Sports &amp; Outdoor, Germany)</li><li>Zalando (E-commerce, Germany)</li><li>Reckitt (CPG/FMCG, UK)</li><li>Diageo (CPG/FMCG, UK)</li><li>Decathlon (Sports &amp; Outdoor, France)</li><li>Tesco (Grocery, UK)</li><li>Marks &amp; Spencer (Apparel &amp; Home, UK)</li><li>Heineken (CPG/FMCG, Netherlands)</li><li>Danone (CPG/FMCG, France)</li><li>Pernod Ricard (CPG/FMCG, France)</li><li>Burberry (Luxury &amp; Beauty, UK)</li><li>Ocado (E-commerce, UK)</li><li>Sainsbury's (Grocery, UK)</li><li>On Running (Sports &amp; Outdoor, Switzerland)</li><li>Henkel (CPG/FMCG, Germany)</li><li>Beiersdorf (CPG/FMCG, Germany)</li><li>Ferrero (CPG/FMCG, Italy)</li><li>Campari Group (CPG/FMCG, Italy)</li><li>Carlsberg (CPG/FMCG, Denmark)</li><li>Haleon (CPG/FMCG, UK)</li><li>Puig (CPG/FMCG, Spain)</li><li>LEGO Group (CPG/FMCG, Denmark)</li><li>Lavazza (CPG/FMCG, Italy)</li><li>Barilla (CPG/FMCG, Italy)</li><li>Essity (CPG/FMCG, Sweden)</li><li>Arla Foods (CPG/FMCG, Denmark)</li><li>Fnac Darty (E-commerce, France)</li><li>Sodexo (CPG/FMCG, France)</li><li>Hermès (Luxury &amp; Beauty, France)</li><li>Colruyt Group (Grocery, Belgium)</li><li>Lotus Bakeries (CPG/FMCG, Belgium)</li>
+</ul></noscript>
+</div>
+    <div id="showMoreBtn" style="display:none;justify-content:center;margin-top:24px">
+      <button onclick="showAllCompanies()" class="btn-secondary">See all top retailers &amp; CPGs →</button>
+    </div>
+
+    <script>
+const INITIAL_LIMIT = 15;
+let showAll = false;
+
+const companiesData = [
+  {id:1,name:"ASOS",type:"Retail",sector:"E-commerce",country:"UK",icon:"👗",updated:"2026-04-09"},
+  {id:2,name:"Carrefour",type:"Retail",sector:"Grocery & Hypermarket",country:"France",icon:"🛒",updated:"2026-02-19"},
+  {id:3,name:"IKEA / Ingka",type:"Retail",sector:"Apparel & Home",country:"Sweden",icon:"🏠",updated:"2025-10-15"},
+  {id:4,name:"H&M Group",type:"Retail",sector:"Apparel & Home",country:"Sweden",icon:"👔",updated:"2026-03-27"},
+  {id:5,name:"Nestlé",type:"CPG",sector:"CPG/FMCG",country:"Switzerland",icon:"🥜",updated:"2026-02-20"},
+  {id:6,name:"L'Oréal",type:"CPG",sector:"Luxury & Beauty",country:"France",icon:"💄",updated:"2026-02-06"},
+  {id:7,name:"AB InBev",type:"CPG",sector:"CPG/FMCG",country:"Belgium",icon:"🍺",updated:"2026-02-27"},
+  {id:8,name:"Estée Lauder",type:"CPG",sector:"Luxury & Beauty",country:"US (EMEA ops)",icon:"✨",updated:"2026-02-03"},
+  {id:9,name:"Nespresso",type:"CPG",sector:"CPG/FMCG",country:"Switzerland",icon:"☕",updated:"2026-02-20"},
+  {id:10,name:"LVMH",type:"Retail",sector:"Luxury & Beauty",country:"France",icon:"👜",updated:"2026-04-14"},
+  {id:11,name:"Richemont",type:"Retail",sector:"Luxury & Beauty",country:"Switzerland",icon:"💎",updated:"2026-01-15"},
+  {id:12,name:"Kering",type:"Retail",sector:"Luxury & Beauty",country:"France",icon:"👗",updated:"2026-04-22"},
+  {id:13,name:"Unilever",type:"CPG",sector:"CPG/FMCG",country:"UK / Netherlands",icon:"🧴",updated:"2026-02-06"},
+  {id:14,name:"Inditex / Zara",type:"Retail",sector:"Apparel & Home",country:"Spain",icon:"👕",updated:"2026-03-12"},
+  {id:15,name:"Ahold Delhaize",type:"Retail",sector:"Grocery & Hypermarket",country:"Netherlands",icon:"🛒",updated:"2026-02-11"},
+  {id:16,name:"Adidas",type:"Retail",sector:"Sports & Outdoor",country:"Germany",icon:"👟",updated:"2026-03-04"},
+  {id:17,name:"Zalando",type:"Retail",sector:"E-commerce",country:"Germany",icon:"📦",updated:"2026-03-04"},
+  {id:18,name:"Reckitt",type:"CPG",sector:"CPG/FMCG",country:"UK",icon:"🧼",updated:"2026-02-11"},
+  {id:19,name:"Diageo",type:"CPG",sector:"CPG/FMCG",country:"UK",icon:"🥃",updated:"2026-02-04"},
+  {id:20,name:"Decathlon",type:"Retail",sector:"Sports & Outdoor",country:"France",icon:"⛺",updated:"2026-04-01"},
+  {id:21,name:"Tesco",type:"Retail",sector:"Grocery & Hypermarket",country:"UK",icon:"🛒",updated:"2026-04-16"},
+  {id:22,name:"Marks & Spencer",type:"Retail",sector:"Apparel & Home",country:"UK",icon:"👔",updated:"2025-11-05"},
+  {id:23,name:"Heineken",type:"CPG",sector:"CPG/FMCG",country:"Netherlands",icon:"🍺",updated:"2026-02-11"},
+  {id:24,name:"Danone",type:"CPG",sector:"CPG/FMCG",country:"France",icon:"🥛",updated:"2026-04-23"},
+  {id:25,name:"Pernod Ricard",type:"CPG",sector:"CPG/FMCG",country:"France",icon:"🍷",updated:"2026-04-16"},
+  {id:26,name:"Burberry",type:"Retail",sector:"Luxury & Beauty",country:"UK",icon:"👜",updated:"2025-05-14"},
+  {id:27,name:"Ocado",type:"Retail",sector:"E-commerce",country:"UK",icon:"📦",updated:"2026-02-04"},
+  {id:28,name:"Sainsbury's",type:"Retail",sector:"Grocery & Hypermarket",country:"UK",icon:"🛒",updated:"2025-11-06"},
+  {id:29,name:"On Running",type:"Retail",sector:"Sports & Outdoor",country:"Switzerland",icon:"👟",updated:"2025-11-12"},
+  {id:30,name:"Henkel",type:"CPG",sector:"CPG/FMCG",country:"Germany",icon:"🧴",updated:"2026-03-05"},
+  {id:31,name:"Beiersdorf",type:"CPG",sector:"CPG/FMCG",country:"Germany",icon:"🧴",updated:"2026-02-26"},
+  {id:32,name:"Ferrero",type:"CPG",sector:"CPG/FMCG",country:"Italy",icon:"🍫",updated:"2025-11-01"},
+  {id:33,name:"Campari Group",type:"CPG",sector:"CPG/FMCG",country:"Italy",icon:"🍹",updated:"2026-03-10"},
+  {id:34,name:"Carlsberg",type:"CPG",sector:"CPG/FMCG",country:"Denmark",icon:"🍺",updated:"2026-02-12"},
+  {id:35,name:"Haleon",type:"CPG",sector:"CPG/FMCG",country:"UK",icon:"💊",updated:"2026-02-05"},
+  {id:36,name:"Puig",type:"CPG",sector:"CPG/FMCG",country:"Spain",icon:"💄",updated:"2026-03-06"},
+  {id:37,name:"LEGO Group",type:"CPG",sector:"CPG/FMCG",country:"Denmark",icon:"🧱",updated:"2026-03-04"},
+  {id:38,name:"Lavazza",type:"CPG",sector:"CPG/FMCG",country:"Italy",icon:"☕",updated:"2026-04-10"},
+  {id:39,name:"Barilla",type:"CPG",sector:"CPG/FMCG",country:"Italy",icon:"🍝",updated:"2025-06-15"},
+  {id:40,name:"Essity",type:"CPG",sector:"CPG/FMCG",country:"Sweden",icon:"🧻",updated:"2026-02-04"},
+  {id:41,name:"Arla Foods",type:"CPG",sector:"CPG/FMCG",country:"Denmark",icon:"🧈",updated:"2026-03-03"},
+  {id:42,name:"Fnac Darty",type:"Retail",sector:"E-commerce",country:"France",icon:"📱",updated:"2026-03-03"},
+  {id:43,name:"Sodexo",type:"CPG",sector:"CPG/FMCG",country:"France",icon:"🍽️",updated:"2025-04-10"},
+  {id:44,name:"Hermès",type:"Retail",sector:"Luxury & Beauty",country:"France",icon:"👜",updated:"2026-02-12"},
+  {id:45,name:"Colruyt Group",type:"Retail",sector:"Grocery & Hypermarket",country:"Belgium",icon:"🛒",updated:"2025-12-04"},
+  {id:46,name:"Lotus Bakeries",type:"CPG",sector:"CPG/FMCG",country:"Belgium",icon:"🍪",updated:"2026-03-20"}
+];
+
+function sectorToFilter(sector) {
+  if(sector.includes("Grocery")) return "grocery";
+  if(sector.includes("Luxury")) return "luxury";
+  if(sector.includes("E-commerce")) return "ecommerce";
+  if(sector.includes("Sports")) return "sports";
+  if(sector.includes("Apparel")) return "apparel";
+  return null;
+}
+
+function renderCompanies(filter = "all") {
+  const grid = document.getElementById("coGrid");
+  grid.innerHTML = "";
+  let displayed = 0, total = 0;
+
+  companiesData.forEach(co => {
+    let show = false;
+    const sectorFilter = sectorToFilter(co.sector);
+
+    if(filter === "all") show = true;
+    else if(filter === "retail" && co.type === "Retail") show = true;
+    else if(filter === "cpg" && co.type === "CPG") show = true;
+    else if(filter === sectorFilter) show = true;
+
+    if(show) {
+      total++;
+      if(filter === "all" && !showAll && displayed >= INITIAL_LIMIT) return;
+      displayed++;
+      const card = document.createElement("div");
+      card.className = "co-card";
+      card.innerHTML = `
+        <div style="font-size:2rem;margin-bottom:8px;line-height:1">${co.icon}</div>
+        <div style="font-family:var(--font-display);font-weight:500;font-size:.95rem;margin-bottom:4px;letter-spacing:-0.01em">${co.name}</div>
+        <div style="color:var(--text-mid);font-size:.75rem;margin-bottom:2px">${co.country}</div>
+        <div style="color:var(--text-dim);font-size:.7rem">${co.sector}</div>
+        <div style="color:var(--text-dim);font-size:.65rem;margin-top:auto;padding-top:10px;border-top:1px solid var(--border)">Updated ${co.updated}</div>
+      `;
+      grid.appendChild(card);
+    }
+  });
+
+  const btn = document.getElementById("showMoreBtn");
+  if(btn) {
+    const visible = filter === "all" && !showAll && total > INITIAL_LIMIT;
+    btn.style.display = visible ? "flex" : "none";
+    /* count display removed — button text is static */
+  }
+}
+
+function showAllCompanies() {
+  showAll = true;
+  const active = document.querySelector("#filterBtns .chip.active");
+  renderCompanies(active ? active.getAttribute("data-filter") : "all");
+}
+
+document.getElementById("filterBtns").addEventListener("click", (e) => {
+  if(e.target.classList.contains("chip")) {
+    document.querySelectorAll("#filterBtns .chip").forEach(b => b.classList.remove("active"));
+    e.target.classList.add("active");
+    const filter = e.target.getAttribute("data-filter");
+    showAll = false;
+    renderCompanies(filter);
+  }
+});
+
+renderCompanies();
+    </script>
+
+    <!-- Upcoming earnings mini-strip -->
+    <div class="cal reveal" style="margin-top:32px">
+      <div style="padding:12px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+        <span style="font-family:var(--font-display);font-weight:500;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mid)">Upcoming earnings · tracked live</span>
+        <span style="font-family:var(--font-display);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim)">Full calendar on every profile</span>
+      </div>
+      <div id="earningsCal">
+        <!-- Static fallback — replaced by live Rachel API data on load -->
+        <div class="cal-row"><div class="cal-date"><span class="d">4</span><span class="m">Jun</span></div><div class="cal-co">H&amp;M Group <span class="badge sector" style="font-size:.54rem;padding:.15rem .45rem;margin-left:5px;vertical-align:middle">Apparel</span></div><div class="cal-ev">Q2 2026 results</div></div>
+        <div class="cal-row"><div class="cal-date"><span class="d">25</span><span class="m">Jul</span></div><div class="cal-co">LVMH <span class="badge sector" style="font-size:.54rem;padding:.15rem .45rem;margin-left:5px;vertical-align:middle">Luxury</span></div><div class="cal-ev">H1 2026 revenue</div></div>
+        <div class="cal-row" style="border-bottom:none"><div class="cal-date"><span class="d">23</span><span class="m">Jul</span></div><div class="cal-co">Kering <span class="badge sector" style="font-size:.54rem;padding:.15rem .45rem;margin-left:5px;vertical-align:middle">Luxury</span></div><div class="cal-ev">H1 2026 results</div></div>
+      </div>
+    </div>
+
+    <!-- Events on the radar -->
+    <div class="cal reveal" style="margin-top:16px">
+      <div style="padding:10px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+        <span style="font-family:var(--font-display);font-weight:500;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mid)">Events on the radar · next 60 days</span>
+        <a href="/app?demo=1" style="font-family:var(--font-display);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rust)">Full events calendar in the demo →</a>
+      </div>
+      <div class="cal-row">
+        <div class="cal-date"><span class="d">9</span><span class="m">Jun</span></div>
+        <div class="cal-co">Shoptalk Europe <span class="badge sector" style="font-size:.54rem;padding:.15rem .45rem;margin-left:5px;vertical-align:middle">Barcelona</span></div>
+        <div class="cal-ev">Retail · AI buyer</div>
+      </div>
+      <div class="cal-row">
+        <div class="cal-date"><span class="d">11</span><span class="m">Jun</span></div>
+        <div class="cal-co">Viva Technology <span class="badge sector" style="font-size:.54rem;padding:.15rem .45rem;margin-left:5px;vertical-align:middle">Paris</span></div>
+        <div class="cal-ev">Tech / AI</div>
+      </div>
+      <div class="cal-row" style="border-bottom:none">
+        <div class="cal-date"><span class="d">22</span><span class="m">Jun</span></div>
+        <div class="cal-co">Cannes Lions <span class="badge sector" style="font-size:.54rem;padding:.15rem .45rem;margin-left:5px;vertical-align:middle">Cannes</span></div>
+        <div class="cal-ev">Marketing · AI</div>
+      </div>
+    </div>
+
+    <div style="display:none">
+      <div class="card dim">
+        <div class="dim-head"><span class="vend gcp">Google Cloud</span><span class="idx">6 dimensions</span></div>
+        <ul>
+          <li><span class="n">01</span>GCP compute</li>
+          <li><span class="n">02</span>Workspace + Gemini</li>
+          <li><span class="n">03</span>Looker / Apigee</li>
+          <li><span class="n">04</span>Chronicle</li>
+          <li><span class="n">05</span>AppSheet</li>
+          <li><span class="n">06</span>Vertex AI</li>
+        </ul>
+      </div>
+      <div class="card dim">
+        <div class="dim-head"><span class="vend anth">Anthropic</span><span class="idx">6 dimensions</span></div>
+        <ul>
+          <li><span class="n">01</span>Claude API</li>
+          <li><span class="n">02</span>Claude Enterprise</li>
+          <li><span class="n">03</span>MCP + tool use</li>
+          <li><span class="n">04</span>Trust &amp; Safety</li>
+          <li><span class="n">05</span>Claude Code</li>
+          <li><span class="n">06</span>Fine-tuning + evals</li>
+        </ul>
+      </div>
+    </div>
+
+    </div><!-- end hidden -->
+  </div>
+</section>
+
+<!-- ==================== SECTION 4, BRAND PROFILE ==================== -->
+<section class="light" id="profile" style="padding-top:40px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">§ 03 · Consumer surface</span>
+      <h2>Every company. Every lens.</h2>
+      <p class="sub">One structured brief per company: financials, AI maturity, vendor relationships, org signals, earnings quotes. Built from public sources only: investor reports, earnings transcripts, vendor case studies. Same shape every time, so you can compare without the legwork. Free to browse.</p>
+    </div>
+
+    <div class="profile-wrap" style="display:block">
+      <div class="profile-card reveal" style="display:grid;grid-template-columns:320px 1fr">
+
+        <!-- Left panel: identity + stats -->
+        <div style="border-right:1px solid var(--border);display:flex;flex-direction:column">
+          <div class="profile-head">
+            <div class="ph-left">
+              <div class="profile-title">
+                <h3>ASOS</h3>
+                <div class="meta">E-commerce · United Kingdom · <span class="globe"></span>Multinational</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+              <span class="badge confirmed">Live profile</span>
+              <span style="font-family:var(--font-display);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim)">Updated Apr 22, 2026</span>
+              <span style="font-family:var(--font-display);font-size:.60rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);background:rgba(196,138,42,0.1);border:1px solid rgba(196,138,42,0.28);padding:.22rem .55rem;border-radius:100px">Next earnings: May 2026</span>
+              <span style="font-family:var(--font-display);font-size:.60rem;letter-spacing:.1em;text-transform:uppercase;color:#7a5c00;background:rgba(196,138,42,0.08);border:1px solid rgba(196,138,42,0.22);padding:.22rem .55rem;border-radius:100px" title="EU AI Act readiness assessment">EU AI Act: in progress</span>
+            </div>
+          </div>
+          <div class="profile-stats" style="border-bottom:none">
+            <div class="pstat"><div class="k">Revenue, FY25 (adj.)</div><div class="v">£2.5B <small style="color:var(--text-dim)">-14% YoY</small></div></div>
+            <div class="pstat"><div class="k">Gross margin, FY25</div><div class="v">47.1% <small style="color:var(--text-dim)">+370bps YoY</small></div></div>
+            <div class="pstat"><div class="k">Adj. EBITDA, FY25</div><div class="v">£132M <small style="color:var(--text-dim)">+60% YoY</small></div></div>
+            <div class="pstat"><div class="k">Ticker</div><div class="v">ASC.L <small>LSE</small></div></div>
+            <div class="pstat mat" style="grid-column:span 2"><div class="k">AI maturity</div><div class="v" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">4/5 <span class="dots"><i class="dot-s"></i><i class="dot-s"></i><i class="dot-s"></i><i class="dot-s"></i><i class="dot-s off"></i></span><span class="badge confirmed" style="font-size:.55rem;padding:.15rem .5rem">AI Performer</span><span style="font-family:var(--font-body);font-size:.75rem;color:var(--text-dim);font-weight:300">Rhetoric 4/5 · Production 4/5</span></div></div>
+            <div class="pstat" style="grid-column:span 2;border-bottom:none"><div class="k">From the filing</div><div class="v" style="font-size:.8rem;font-weight:400;line-height:1.5;color:var(--text-mid)">Margin and adjusted EBITDA up while sales fell 14%. Named AI in the commercial model, all from the FY25 RNS: design workflow (-75% cycle time), "Styled for You", virtual try-on, Fermat upskilling. <a href="https://www.asosplc.com/media/ikxfhqeu/asos-fy25-results-rns-final-20251120.pdf" target="_blank" style="color:var(--text-dim);text-decoration:underline;font-size:.8em">Source: ASOS FY25 RNS, 21 Nov 2025 ↗</a></div></div>
+          </div>
+        </div>
+
+        <!-- Right panel: lenses + actions -->
+        <div style="display:flex;flex-direction:column">
+          <div class="profile-lens" style="flex:1">
+            <div class="lens"><span class="lk">AI Talent</span><span class="lv">Active hiring: Data, Analytics &amp; AI · <a href="https://careers.asos.com" target="_blank" style="color:var(--rust)">careers.asos.com ↗</a></span></div>
+            <div class="lens" style="align-items:flex-start"><span class="lk" style="padding-top:2px">AI Enablement</span><span class="lv" style="display:flex;flex-wrap:wrap;gap:5px 10px;line-height:1.6"><span>Microsoft <span class="badge confirmed" style="font-size:.55rem;padding:.15rem .45rem">Confirmed</span></span><span style="color:var(--border-strong)">·</span><span>Google <span class="badge confirmed" style="font-size:.55rem;padding:.15rem .45rem">Confirmed</span></span><span style="color:var(--border-strong)">·</span><span style="color:var(--text-dim)">Anthropic</span><span style="color:var(--border-strong)">·</span><span style="color:var(--text-dim)">AWS</span><span style="color:var(--border-strong)">·</span><span style="color:var(--text-dim)">OpenAI <span style="font-size:.8em">(via Azure)</span></span><span style="color:var(--border-strong)">·</span><span style="color:var(--text-dim)">Mistral AI</span></span></div>
+            <div class="lens" style="align-items:flex-start"><span class="lk" style="padding-top:2px">AI Use cases</span><span class="lv" style="display:flex;flex-direction:column;gap:5px;line-height:1.5"><a href="https://www.microsoft.com/en/customers/story/1731404546482708710-asos-retailer-azure-ai-studio" target="_blank" style="color:inherit;text-decoration:none">AI Stylist <span style="color:var(--text-dim);font-size:.8em">(Azure OpenAI, Microsoft)</span> <span style="color:var(--rust);font-size:.75em">↗</span></a><a href="https://www.asosplc.com/news-and-media/latest-news/asos-launches-hybrid-approach-to-virtual-try-on-giving-customers-a-unique-way-to-shop-with-confidence/" target="_blank" style="color:inherit;text-decoration:none">Hybrid virtual try-on <span style="color:var(--text-dim);font-size:.8em">(launched 2025)</span> <span style="color:var(--rust);font-size:.75em">↗</span></a><a href="https://www.asosplc.com/news-and-media/latest-news/asos-partners-with-fermat-to-upskill-all-designers-in-generative-ai/" target="_blank" style="color:inherit;text-decoration:none">Designer GenAI upskilling <span style="color:var(--text-dim);font-size:.8em">(Fermat partnership)</span> <span style="color:var(--rust);font-size:.75em">↗</span></a><span>Demand forecasting <span style="color:var(--text-dim);font-size:.8em">(ML · inventory optimisation)</span></span><span>AI search <span style="color:var(--text-dim);font-size:.8em">(Constructor.io)</span></span><span>Product data enrichment <span style="color:var(--text-dim);font-size:.8em">(Akeneo)</span></span></span></div>
+            <div class="lens" style="background:var(--surface-2);border-radius:3px;padding:10px 12px;margin-top:2px;gap:10px;align-items:flex-start"><span class="lk" style="color:var(--rust);padding-top:2px;flex-shrink:0">AI in latest earnings</span><span class="lv" style="line-height:1.6"><span style="font-style:italic;color:var(--text-mid)">"We are accelerating our investment in AI-driven personalisation and demand forecasting, with a 40% increase in our data science headcount planned for FY26."</span><span style="color:var(--text-dim);font-style:normal;font-size:.8em;display:block;margin-top:4px">ASOS CEO · H1 FY26 results, Nov 2025 · AI lead: <b>Cliff Cohen</b>, CTO</span><span style="font-size:.8em;color:var(--text-dim);display:block;margin-top:5px">Public · LSE: ASC.L · Next results: ~May 2026 · <a href="https://www.asosplc.com/investors/" target="_blank" style="color:var(--rust)">asosplc.com/investors ↗</a></span></span></div>
+            <div class="lens" style="background:rgba(179,78,42,0.04);border-radius:3px;padding:10px 12px;margin-top:2px;gap:10px;align-items:flex-start"><span class="lk" style="color:var(--rust);padding-top:2px;flex-shrink:0">Ask Rachel</span><span class="lv" style="line-height:1.6"><span style="font-size:.78rem;font-family:var(--font-display);font-weight:600;color:var(--text);display:block;margin-bottom:5px">"What's Northwind Apparel's biggest AI risk heading into FY27?"</span><span style="font-style:italic;color:var(--text-mid);font-size:.82rem">Strong AI narrative, one confirmed tool still in beta [Source: Northwind Apparel FY26 results · earnings release]. The gap between stated ambition and shipped output is the risk to watch at the next print. So what: judge the FY27 Q1 release on named tools live, not on narrative. (Sample answer against the fictional demo dataset.)</span><span style="display:block;margin-top:8px"><a href="/app?demo=1" style="font-size:.75rem;color:var(--rust);font-family:var(--font-display);font-weight:500">Ask Rachel on any company →</a></span></span></div>
+            <div class="lens"><span class="lk">Sources</span><span class="lv" style="display:flex;flex-direction:column;gap:4px"><a href="https://www.microsoft.com/en/customers/story/1731404546482708710-asos-retailer-azure-ai-studio" target="_blank" style="color:var(--rust);text-decoration:underline;text-underline-offset:2px;font-size:.88rem">Microsoft customer story, ASOS + Azure AI Studio →</a><a href="https://ukstories.microsoft.com/features/asos-and-microsoft-announce-new-three-year-ai-collaboration/" target="_blank" style="color:var(--rust);text-decoration:underline;text-underline-offset:2px;font-size:.88rem">ASOS × Microsoft 3-year AI collaboration →</a><a href="https://www.asosplc.com/news-and-media/latest-news/asos-launches-hybrid-approach-to-virtual-try-on-giving-customers-a-unique-way-to-shop-with-confidence/" target="_blank" style="color:var(--rust);text-decoration:underline;text-underline-offset:2px;font-size:.88rem">ASOS launches hybrid virtual try-on (asosplc.com) →</a><a href="https://www.theguardian.com/business/2025/nov/21/asos-ai-stylists-sales-discounts-serial-returners" target="_blank" style="color:var(--rust);text-decoration:underline;text-underline-offset:2px;font-size:.88rem">ASOS turns to AI stylists after 12% sales slide (The Guardian) →</a><a href="https://www.asosplc.com/news-and-media/latest-news/asos-partners-with-fermat-to-upskill-all-designers-in-generative-ai/" target="_blank" style="color:var(--rust);text-decoration:underline;text-underline-offset:2px;font-size:.88rem">ASOS × Fermat, designer GenAI upskilling →</a><a href="https://xgentech.net/blogs/resources/asos-ai-in-ecommerce-personalization-strategy" target="_blank" style="color:var(--rust);text-decoration:underline;text-underline-offset:2px;font-size:.88rem">6 Ways ASOS Is Using AI to Redefine Ecommerce (xgentech) →</a><a href="https://business.google.com/uk/think/marketing-strategies/asos-innovation-incremental-growth-revenue/" target="_blank" style="color:var(--rust);text-decoration:underline;text-underline-offset:2px;font-size:.88rem">ASOS × Google: innovation and incremental growth (Google Think) →</a></span></div>
+          </div>
+          <div class="profile-actions">
+            <span class="btn-ghost" style="pointer-events:none;opacity:0.35;cursor:default;border:1px solid var(--border)">Compare</span>
+            <span class="btn-ghost" style="pointer-events:none;opacity:0.35;cursor:default;border:1px solid var(--border)">Export</span>
+            <span class="btn-ghost primary" style="pointer-events:none;opacity:0.55;cursor:default;background:var(--rust);color:#fff;border-color:var(--rust)">Full profile →</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 5, METHODOLOGY ==================== -->
+<section class="light" id="methodology" style="padding-top:40px;padding-bottom:40px">
+  <div class="wrap">
+    <div class="section-head reveal" style="max-width:720px">
+      <span class="section-label">§ 04 · Benchmark methodology</span>
+      <h2>Why Rachel, not just Google or ChatGPT.</h2>
+    </div>
+
+    <div class="reveal" style="margin-bottom:48px">
+      <p style="font-size:.88rem;color:var(--text-mid);margin-bottom:20px;max-width:64ch">Every company is mapped on two axes derived from investor documents and earnings calls. The quadrant tells you more than any single score.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;border:1px solid var(--border-strong);border-radius:4px;overflow:hidden;max-width:780px">
+        <div style="padding:22px 20px;background:rgba(200,140,40,0.07);border-bottom:2px solid var(--border)">
+          <div style="font-family:var(--font-display);font-weight:600;font-size:.88rem;color:#9a6100;margin-bottom:6px">Narrative-led</div>
+          <div style="font-size:.78rem;color:var(--text-mid);line-height:1.55">High board rhetoric · Few confirmed production cases. Named programmes, strategic commitments. Thin on shipped output.</div>
+        </div>
+        <div style="padding:22px 20px;background:rgba(30,120,80,0.07);border-bottom:2px solid var(--border);border-left:2px solid var(--border)">
+          <div style="font-family:var(--font-display);font-weight:600;font-size:.88rem;color:#1a6647;margin-bottom:6px">AI Performer ★</div>
+          <div style="font-size:.78rem;color:var(--text-mid);line-height:1.55">High rhetoric · Confirmed production. CEO champions AI, named tools live, quantified ROI. Building a compounding capability advantage.</div>
+        </div>
+        <div style="padding:22px 20px;background:rgba(28,25,20,0.04)">
+          <div style="font-family:var(--font-display);font-weight:600;font-size:.88rem;color:var(--text-mid);margin-bottom:6px">Not yet visible</div>
+          <div style="font-size:.78rem;color:var(--text-dim);line-height:1.55">Low rhetoric · No confirmed cases. AI absent or incidental in investor materials. Likely behind the curve or unwilling to signal.</div>
+        </div>
+        <div style="padding:22px 20px;background:rgba(60,100,200,0.06);border-left:2px solid var(--border)">
+          <div style="font-family:var(--font-display);font-weight:600;font-size:.88rem;color:#2040a0;margin-bottom:6px">Silent Builder</div>
+          <div style="font-size:.78rem;color:var(--text-mid);line-height:1.55">Low rhetoric · Confirmed production. Doing without telling. Underrated. May move to Performer as they gain confidence to narrate.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:10px;font-size:.72rem;color:var(--text-dim);font-family:var(--font-display);letter-spacing:.06em;text-transform:uppercase;max-width:780px;justify-content:space-between">
+        <span>← Low board AI rhetoric</span><span>High board AI rhetoric →</span>
+      </div>
+      <p style="margin-top:18px;font-size:.85rem;color:var(--text-mid);max-width:780px">The scoring rubric is public: apply it to any company yourself. <a href="#opensource" style="color:var(--rust)">Get the methodology →</a></p>
+    </div>
+
+    <div class="method-grid">
+      <div class="card tile reveal">
+        <div class="m-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 4h14M2 9h14M2 14h9" stroke="currentColor" stroke-linecap="round"/></svg></div>
+        <h4>Structured, not summaries.</h4>
+        <p>Same data model for every company. Not summaries. Comparable side by side.</p>
+      </div>
+      <div class="card tile reveal">
+        <div class="m-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 14l4-4 4 2 6-8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>A score. And a "so what."</h4>
+        <p>AI maturity score, quadrant position, and a plain-language read. So you know what to do next.</p>
+      </div>
+      <div class="card tile reveal">
+        <div class="m-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="3" r="2" stroke="currentColor"/><circle cx="3" cy="14" r="2" stroke="currentColor"/><circle cx="15" cy="14" r="2" stroke="currentColor"/><path d="M9 5l-4.5 7M9 5l4.5 7" stroke="currentColor" stroke-linecap="round"/></svg></div>
+        <h4>Every claim cites its source. We never guess.</h4>
+        <p>Earnings transcripts, annual reports, investor decks, press releases, vendor case studies, analyst notes, regulatory filings. Each field tagged Confirmed or Estimated, always with a URL. No evidence = no claim.</p>
+      </div>
+      <div class="card tile reveal">
+        <div class="m-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="currentColor"/><ellipse cx="9" cy="9" rx="3.5" ry="7" stroke="currentColor"/><path d="M2 9h14" stroke="currentColor"/></svg></div>
+        <h4>Weeks of analyst work, done overnight.</h4>
+        <p>EMEA has no SEC EDGAR. 50+ individual investor pipelines, each with its own format and schedule. Doable by hand, but it burns an analyst month every quarter. Rachel runs them all, on earnings day.</p>
+      </div>
+      <div class="card tile reveal">
+        <div class="m-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1l7 3v5c0 4-3 7-7 8-4-1-7-4-7-8V4l7-3z" stroke="currentColor"/></svg></div>
+        <h4>Independent, not vendor-produced.</h4>
+        <p>No vendor funding. No paid placements. No sponsored scores.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ==================== SECTION 8, PRICING ==================== -->
+<section class="light" id="opensource" style="padding-top:40px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">§ 05 · Run your own</span>
+      <h2>Open source, MIT licensed.</h2>
+      <p class="sub">Rachel is a reference implementation of a grounded, citation-first research agent. Clone it, point it at your own market, write your own scoring anchors, and run your own instance. The methodology, the data schema, and the eval harness are all in the repo.</p>
+    </div>
+    <div class="reveal" style="margin-top:24px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <a href="https://github.com/juliedemoyer/rachel-retail-analyst" class="btn-primary">View on GitHub</a>
+      <a href="/app?demo=1" class="btn-primary" style="background:transparent;border:1px solid currentColor;color:inherit">Try the demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 9, ABOUT ==================== -->
+<section class="light" id="about" style="padding-top:40px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">§ 06 · About</span>
+      <h2>Why this exists.</h2>
+    </div>
+
+    <div class="about reveal">
+      <p>Rachel exists to answer one question honestly: across a whole sector, who is <strong>actually building</strong> with AI, with which vendors, at what maturity, and what did they really commit to on the last <strong>earnings call</strong>. Not the headline. The sentence in the transcript.</p>
+      <p>Keeping a finger on that <strong>industry AI pulse</strong> matters, but the alternative is hours on investor relations websites and analyst reports. That does not scale. <strong>An agent that reads every filing the night it publishes does.</strong></p>
+      <p>So Rachel reads the <strong>investor reports</strong>, tracks the <strong>vendor relationships</strong>, and structures the result so every claim carries a source. When there is no source, she says so and stops. That refusal is the part that makes the rest usable.</p>
+      <p>The whole thing is <strong>open source under an MIT licence</strong>. Point it at your own market, write your own scoring anchors, run your own instance. Nobody should have to build their own Rachel from scratch.</p>
+      <p><strong>Built from public sources only. Every score dated to its filing. Not affiliated with any vendor.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 10, FAQ ==================== -->
+<section class="light" id="faq" style="padding-top:40px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">§ 07 · Questions</span>
+      <h2>FAQ</h2>
+    </div>
+
+    <div class="faq reveal">
+      <details class="qa" open>
+        <summary>How are vendor scores produced?<span class="plusminus"></span></summary>
+        <div class="answer">Each score is derived from published customer stories, earnings call transcripts, press releases, and public CEO/CDO/CMO/CIO statements. Every company is mapped on two axes: <em>board AI rhetoric warmth</em> (1–5, from silent to AI-first narrative) and <em>confirmed production use cases</em> (0–5+, from no shipped output to 5+ named tools with quantified ROI). Where evidence is weak, the score is marked <em>estimated</em> rather than <em>confirmed</em>. Source URLs are attached at the vendor level so you can verify at any time.</div>
+      </details>
+      <details class="qa">
+        <summary>How fresh is the data?<span class="plusminus"></span></summary>
+        <div class="answer">A running instance updates on earnings day: when a tracked company reports, the nightly ingestion reads the filing and refreshes that profile. The public repository ships a frozen July 2026 snapshot of that process — every score is stamped with the filing it derives from, and should be read as of that date.</div>
+      </details>
+      <details class="qa">
+        <summary>Can I download the full dataset?<span class="plusminus"></span></summary>
+        <div class="answer">Yes. You can export the full vendor matrix as CSV, connect via API read access, or pipe a live data feed straight into your own tools and agents. That's where the magic happens.</div>
+      </details>
+      <details class="qa">
+        <summary>Is this affiliated with Microsoft, Google, or Anthropic?<span class="plusminus"></span></summary>
+        <div class="answer">No. Rachel Retail is independently produced. No vendor pays to appear, rank better, or change their scores. The independence notice is in the footer.</div>
+      </details>
+      <details class="qa">
+        <summary>Why EMEA to start?<span class="plusminus"></span></summary>
+        <div class="answer">Defensible beachhead, and a genuinely underserved market. North American retail is well-covered by US-focused products, partly because the SEC's EDGAR platform centralises every US filing in one place, making it relatively straightforward to run automated analysis at scale. In EMEA, there is no equivalent. Every company publishes its annual reports, earnings presentations, and transcripts on its own website, in its own format, on its own schedule. Tracking the top EMEA retailers and consumer brands means building and maintaining 50+ individual data pipelines. That's the moat. Expanding to 300+ globally is the roadmap.</div>
+      </details>
+      <details class="qa">
+        <summary>I'm an equity analyst, what does Rachel Retail do for me specifically?<span class="plusminus"></span></summary>
+        <div class="answer">Replace four hours of Euromonitor with a four-minute search. Rachel Retail gives you AI CapEx exposure scores (0–5) per stock, vendor footprint breakdowns, and the exact earnings language CEOs and CFOs used to frame AI investment: all cited, all structured, all comparable across the sector. CSV export of the full vendor matrix is available for modelling.</div>
+      </details>
+      <details class="qa">
+        <summary>How is this different from HG Insights?<span class="plusminus"></span></summary>
+        <div class="answer">HG Insights tells you what tech is <em>installed</em>: a lagging indicator of past buying decisions. We tell you what AI strategy the CEO and CTO committed to on the last earnings call: a leading indicator of what they'll buy next. Two different data types, two different moments in the sales cycle. HG also covers all sectors and all tech globally; we go deep on consumer &amp; retail, with financial context, earnings calendar, and source citations that HG doesn't provide.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer style="background:#0E0C0A;color:rgba(255,255,255,0.55);padding:56px 0 32px">
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <div class="f-logo" style="margin-bottom:1rem">
+          <span style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;color:#fff;letter-spacing:.02em">Rachel Retail</span>
+        </div>
+        <p class="tagline" style="font-family:var(--font-display);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.45;max-width:28ch;margin-bottom:1rem">AI intelligence for EMEA retail and consumer brands.</p>
+        <p style="font-size:.82rem;color:rgba(255,255,255,0.35);line-height:1.6;max-width:32ch">Built from public sources only. Not affiliated with any vendor. Every score dated to its filing.</p>
+      </div>
+      <nav class="f-nav">
+        <div class="f-col">
+          <h5 style="font-family:var(--font-display);font-weight:500;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:.85rem">Product</h5>
+          <a href="/app/matrix" style="display:block;font-size:.9rem;color:rgba(255,255,255,0.55);padding:.25rem 0">AI Matrix</a>
+          <a href="/app/companies" style="display:block;font-size:.9rem;color:rgba(255,255,255,0.55);padding:.25rem 0">Companies</a>
+          <a href="/app/leaderboard" style="display:block;font-size:.9rem;color:rgba(255,255,255,0.55);padding:.25rem 0">AI Leaderboard</a>
+          <a href="/app/benchmark" style="display:block;font-size:.9rem;color:rgba(255,255,255,0.55);padding:.25rem 0">Benchmark</a>
+          <a href="/app/ask" style="display:block;font-size:.9rem;color:rgba(255,255,255,0.55);padding:.25rem 0">Ask Rachel</a>
+        </div>
+        <div class="f-col">
+          <h5 style="font-family:var(--font-display);font-weight:500;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:.85rem">Company</h5>
+          <a href="#about" style="display:block;font-size:.9rem;color:rgba(255,255,255,0.55);padding:.25rem 0">About</a>
+          <a href="#faq" style="display:block;font-size:.9rem;color:rgba(255,255,255,0.55);padding:.25rem 0">FAQ</a>
+          <a href="https://github.com/juliedemoyer/rachel-retail-analyst" style="display:block;font-size:.9rem;color:rgba(255,255,255,0.55);padding:.25rem 0">GitHub</a>
+        </div>
+        <div class="f-col">
+          <h5 style="font-family:var(--font-display);font-weight:500;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:.85rem">AI Talent</h5>
+          <p style="font-size:.78rem;color:rgba(255,255,255,0.3);line-height:1.55;margin-top:.4rem;max-width:20ch">Hiring AI-native talent in EMEA retail and consumer? Rachel tracks who is building. Get in touch.</p>
+        </div>
+      </nav>
+    </div>
+    <div class="f-bot" style="padding-top:32px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+      <p class="disclaim" style="font-size:.78rem;color:rgba(255,255,255,0.28);line-height:1.6;max-width:62ch">Rachel Retail is an independent intelligence product. No vendor pays to appear or influence scores. All data is sourced from public earnings documents, investor reports, press releases, and vendor case studies.</p>
+      <p style="font-size:.78rem;color:rgba(255,255,255,0.28)">© 2026 Rachel Retail</p>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ---------- cursor glow ---------- */
+(() => {
+  const glow = document.querySelector('.cursor-glow');
+  document.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top  = e.clientY + 'px';
+  });
+})();
+
+/* ---------- hero stagger ---------- */
+(() => {
+  const els = document.querySelectorAll('.hero .stagger');
+  els.forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), 120 + i * 160);
+  });
+})();
+
+/* ---------- scroll reveal ---------- */
+(() => {
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    }),
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
+
+/* ---------- FAQ (single-open accordion, first open by default) ---------- */
+(() => {
+  const all = document.querySelectorAll('.qa');
+  all.forEach(d => d.addEventListener('toggle', () => {
+    if (d.open) all.forEach(o => { if (o !== d) o.open = false; });
+  }));
+})();
+
+/* ---------- live earnings calendar (pulls from Rachel API) ---------- */
+(async () => {
+  const cal = document.getElementById('earningsCal');
+  if (!cal) return;
+  const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  try {
+    const res = await fetch('/api/earnings-calendar');
+    if (!res.ok) throw new Error('API unavailable');
+    const { entries } = await res.json();
+
+    const today = new Date(); today.setHours(0,0,0,0);
+    const cutoff = new Date(today); cutoff.setDate(cutoff.getDate() + 120); // next ~4 months
+
+    const upcoming = entries
+      .filter(e => {
+        if (e.is_tbc) return false;
+        const dateStr = e.next_earnings_date || e.nextTradingUpdate;
+        if (!dateStr) return false;
+        const d = new Date(dateStr);
+        return d >= today && d <= cutoff;
+      })
+      .sort((a, b) => {
+        const da = a.next_earnings_date || a.nextTradingUpdate;
+        const db = b.next_earnings_date || b.nextTradingUpdate;
+        return new Date(da) - new Date(db);
+      })
+      .slice(0, 8);
+
+    if (!upcoming.length) return; // nothing in window, keep static fallback as-is
+
+    const sectorShort = { 'Luxury & Beauty':'Luxury', 'Apparel & E-commerce':'Apparel', 'CPG':'CPG', 'Grocery':'Grocery', 'Sports & Outdoor':'Sports', 'Home & DIY':'Home' };
+
+    cal.innerHTML = upcoming.map((e, i) => {
+      const dateStr = e.next_earnings_date || e.nextTradingUpdate;
+      const d   = new Date(dateStr);
+      const day = d.getDate();
+      const mon = MONTHS[d.getMonth()];
+      const yr  = d.getFullYear();
+      const last = i === upcoming.length - 1;
+      const sec = e.sector ? (sectorShort[e.sector] || e.sector) : '';
+      return `<div class="cal-row"${last ? ' style="border-bottom:none"' : ''}>`
+           + `<div class="cal-date"><span class="d">${day}</span><span class="m">${mon}</span></div>`
+           + `<div class="cal-co">${e.company}${sec ? ` <span class="badge sector" style="font-size:.54rem;padding:.15rem .45rem;margin-left:5px;vertical-align:middle">${sec}</span>` : ''}</div>`
+           + `<div class="cal-ev">Trading update · ${yr}</div>`
+           + `</div>`;
+    }).join('');
+  } catch(e) { /* keep static fallback rows */ }
+})();
+
+/* ---------- live profile & report counts -------------------------------- */
+(async () => {
+  try {
+    const [profilesRes, manifestRes] = await Promise.all([
+      fetch('/api/profiles?count=true'),
+      fetch('/api/cron?count=true').catch(() => null), // optional
+    ]);
+    if (!profilesRes.ok) return;
+    const { count: companiesCount } = await profilesRes.json();
+    if (typeof companiesCount !== 'number' || companiesCount < 5) return;
+
+    // Only swap the static "50+" if the live count actually exceeds it; otherwise
+    // keep the warmer "50+ companies profiled" copy so we don't downgrade to 12.
+    if (companiesCount > 50) {
+      const proofEl = document.querySelector('.hero-proof');
+      if (proofEl) {
+        proofEl.innerHTML = proofEl.innerHTML
+          .replace(/<b>50\+<\/b> companies profiled/, `<b>${companiesCount}</b> companies profiled`);
+      }
+    }
+  } catch(e) { /* keep static fallback */ }
+})();
+
+</script>
+<!-- ==================== CONTACT MODAL ==================== -->
+<div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-label="Get in touch">
+  <div class="modal">
+    <button class="modal-close" id="contactClose" aria-label="Close">&times;</button>
+    <div id="contactForm">
+      <h3>Get in touch</h3>
+      <p class="m-sub">A question, a company suggestion, or just a hello. I read everything.</p>
+      <div class="modal-fields">
+        <input id="ctName"    type="text"  placeholder="Your name (optional)" autocomplete="name">
+        <input id="ctEmail"   type="email" placeholder="Your email (so I can reply)" autocomplete="email">
+        <textarea id="ctMsg"  placeholder="Your message or company suggestion..." rows="4"></textarea>
+      </div>
+      <button id="ctSubmit" onclick="submitContact()" style="width:100%;padding:.75rem 0;background:var(--rust);color:#fff;border:none;border-radius:4px;font-family:var(--font-display);font-weight:600;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .15s">Send message</button>
+      <p class="modal-note" style="margin-top:10px">Replies come from the Rachel Retail team.</p>
+    </div>
+    <div id="contactSuccess" style="display:none;text-align:center;padding:16px 0">
+      <div style="width:40px;height:40px;border-radius:50%;background:var(--rust-dim);border:1px solid rgba(179,78,42,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="var(--rust)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <p style="font-family:var(--font-display);font-weight:600;font-size:1rem;margin-bottom:6px">Message sent</p>
+      <p style="font-size:.86rem;color:var(--text-mid)">I'll get back to you within a day or two.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openContactModal(prefill) {
+  if (prefill) document.getElementById('ctMsg').value = prefill;
+  document.getElementById('contactModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeContactModal() {
+  document.getElementById('contactModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('contactClose').addEventListener('click', closeContactModal);
+document.getElementById('contactModal').addEventListener('click', function(e) {
+  if (e.target === this) closeContactModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeContactModal();
+});
+
+async function submitContact() {
+  const name    = document.getElementById('ctName').value.trim();
+  const email   = document.getElementById('ctEmail').value.trim();
+  const message = document.getElementById('ctMsg').value.trim();
+  if (!message) { document.getElementById('ctMsg').focus(); return; }
+
+  const btn = document.getElementById('ctSubmit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, message }),
+    });
+    if (!res.ok) throw new Error();
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('contactSuccess').style.display = 'block';
+  } catch {
+    btn.textContent = 'Send message';
+    btn.disabled = false;
+    alert('Something went wrong. Please try emailing hello@your-domain.example directly.');
+  }
+}
+</script>
+</body>
+</html>

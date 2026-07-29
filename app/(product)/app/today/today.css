@@ -1,0 +1,26 @@
+/* /app/today — mobile responsive overrides.
+   Inline styles in page.tsx win specificity, so we use !important in
+   media queries to retake control on small viewports. */
+
+@media (max-width: 640px) {
+  .today-page {
+    padding: 16px 14px 48px !important;
+  }
+  .today-page h1 {
+    font-size: 1.6rem !important;
+    line-height: 1.2 !important;
+  }
+  .today-page section {
+    margin-bottom: 24px !important;
+  }
+  /* Earnings / events rows: stack date + name + sector */
+  .today-page .today-row {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+    padding: 12px 12px !important;
+    align-items: flex-start !important;
+  }
+  .today-page .today-row > span:last-child {
+    text-align: left !important;
+  }
+}

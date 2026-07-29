@@ -1,0 +1,162 @@
+/* Styles for the /app/companies view, ported verbatim from public/app.html
+   #companies section so the URL-based page renders identically to the legacy
+   hash-based view. Scoped under .companies-page to avoid leaking globals. */
+
+.companies-page {
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --bg: #EDE7D9;
+  --surface: #E8E2D5;
+  --surface-2: #E4DDD0;
+  --border: rgba(28, 25, 20, 0.10);
+  --border-strong: rgba(28, 25, 20, 0.18);
+  --text: #1C1914;
+  --text-mid: #5A5347;
+  --text-dim: #8A8278;
+  --rust: #B34E2A;
+  --rust-dim: rgba(179, 78, 42, 0.12);
+  --green: #2d6a4f;
+  --green-dim: rgba(45, 106, 79, 0.08);
+  --amber: #C48A2A;
+  --amber-dim: rgba(196, 138, 42, 0.12);
+  --danger: #8B2B1C;
+
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+.companies-page h1, .companies-page h2, .companies-page h3, .companies-page h4 {
+  font-family: var(--font-display); font-weight: 600; margin: 0; color: var(--text); letter-spacing: -.01em;
+}
+.companies-page h1 { font-size: 2.25rem; line-height: 1.1; letter-spacing: -.02em; }
+.companies-page h2 { font-size: 1.5rem; line-height: 1.2; }
+.companies-page h3 { font-size: 1.125rem; }
+.companies-page h4 { font-size: .9rem; text-transform: uppercase; letter-spacing: .12em; color: var(--text-mid); font-weight: 500; }
+.companies-page p { margin: 0 0 .75rem; }
+.companies-page a { color: inherit; text-decoration: none; }
+.companies-page a:hover { color: var(--rust); }
+.companies-page button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+.companies-page input, .companies-page select, .companies-page textarea { font-family: inherit; font-size: 14px; color: var(--text); }
+
+/* Page wrapper */
+.companies-page .page { padding: 2rem 2rem 4rem; max-width: 1280px; margin: 0 auto; }
+.companies-page .page-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-bottom: 2rem; }
+.companies-page .eyebrow { font-family: var(--font-display); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-mid); margin-bottom: .5rem; display: flex; align-items: center; gap: .75rem; }
+.companies-page .eyebrow::before { content: ''; display: inline-block; width: 1.5rem; height: 1px; background: currentColor; }
+
+/* Score pills */
+.companies-page .score-pill {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .5rem 1rem; background: var(--rust-dim); border: 1px solid var(--rust);
+  border-radius: 100px; font-family: var(--font-display); font-size: 12px; font-weight: 600; color: var(--rust);
+}
+.companies-page .score-pill.perf    { background: var(--rust-dim); border-color: var(--rust); color: var(--rust); }
+.companies-page .score-pill.narrative  { background: var(--amber-dim); border-color: var(--amber); color: var(--amber); }
+.companies-page .score-pill.silent  { background: rgba(45,106,79,0.1); border-color: var(--green); color: var(--green); }
+
+/* Source chip + evidence tier */
+.companies-page .source-chip {
+  display: inline-flex; align-items: center; gap: .35rem;
+  padding: .15rem .6rem; background: var(--bg); border: 1px solid var(--border-strong);
+  border-radius: 100px; font-family: var(--font-display); font-size: 10px; letter-spacing: .06em;
+  color: var(--text-mid); margin-top: .5rem; margin-right: .35rem; cursor: pointer;
+}
+.companies-page .source-chip:hover { border-color: var(--rust); color: var(--rust); }
+.companies-page .evidence-tier {
+  font-family: var(--font-display); font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+  padding: .15rem .45rem; border-radius: 100px;
+}
+.companies-page .evidence-tier.confirmed { background: var(--green-dim); color: var(--green); }
+.companies-page .evidence-tier.estimated { background: var(--amber-dim); color: var(--amber); }
+
+/* Filters */
+.companies-page .filters { display: flex; gap: .5rem; margin-bottom: 1.5rem; flex-wrap: wrap; align-items: center; }
+.companies-page .filter-pill {
+  font-family: var(--font-display); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+  padding: .45rem .9rem; background: var(--surface); border: 1px solid var(--border-strong); border-radius: 100px; cursor: pointer;
+}
+.companies-page .filter-pill.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+.companies-page .search-input { flex: 1; min-width: 220px; padding: .55rem 1rem; background: var(--surface); border: 1px solid var(--border-strong); border-radius: 100px; font-size: 13px; }
+.companies-page .filter-select {
+  font-family: var(--font-display); font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+  padding: .5rem .9rem; background: var(--surface); border: 1px solid var(--border-strong); border-radius: 100px;
+  cursor: pointer; color: var(--text); appearance: none; -webkit-appearance: none;
+  padding-right: 1.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235A5347'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right .65rem center;
+}
+.companies-page .filter-select:focus { outline: 1px solid var(--rust); }
+
+/* Companies grid + cards */
+.companies-page .companies-grid { display: grid; grid-template-columns: 1fr; gap: .75rem; }
+.companies-page .company-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; display: grid; grid-template-columns: 210px 1fr 1fr; cursor: pointer; transition: border-color .15s, box-shadow .15s, transform .15s; text-decoration: none; color: inherit; }
+.companies-page .company-card:hover { border-color: var(--text); box-shadow: 0 4px 16px rgba(0,0,0,0.18); transform: translateY(-1px); }
+.companies-page .cc-left { padding: .65rem .9rem; border-right: 1px solid var(--border); display: flex; flex-direction: column; gap: .25rem; }
+.companies-page .cc-mid { padding: .65rem .9rem; border-right: 1px solid var(--border); }
+.companies-page .cc-right { padding: .65rem .9rem; }
+.companies-page .company-card .c-name { font-family: var(--font-display); font-weight: 600; font-size: .95rem; }
+.companies-page .company-card .c-meta { font-size: 11px; color: var(--text-mid); font-family: var(--font-display); letter-spacing: .06em; text-transform: uppercase; }
+.companies-page .company-card .c-score-row { display: flex; gap: .5rem; align-items: center; margin-top: .3rem; }
+.companies-page .cc-section-label { font-family: var(--font-display); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: .5rem; }
+.companies-page .cc-use-case { border-left: 2px solid var(--rust); padding-left: .65rem; margin-bottom: .6rem; }
+.companies-page .cc-use-case-name { font-family: var(--font-display); font-size: 12.5px; font-weight: 600; line-height: 1.3; margin-bottom: .15rem; }
+.companies-page .cc-use-case-desc { font-size: 11.5px; color: var(--text-mid); line-height: 1.5; }
+.companies-page .cc-vendor-row { display: flex; align-items: center; justify-content: space-between; font-size: 11.5px; margin-bottom: .3rem; }
+.companies-page .cc-vendor-name { display: flex; align-items: center; gap: .4rem; }
+.companies-page .cc-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.companies-page .cc-dot-ms { background: #0078d4; }
+.companies-page .cc-dot-gc { background: #34a853; }
+.companies-page .cc-dot-an { background: #d97706; }
+.companies-page .cc-dot-none { background: var(--border-strong); }
+.companies-page .cc-notes { font-size: 11.5px; color: var(--text-mid); line-height: 1.6; border-top: 1px solid var(--border); padding-top: .65rem; margin-top: .65rem; }
+.companies-page .mini-bar { display: flex; gap: 2px; flex: 1; max-width: 120px; }
+.companies-page .mini-bar .seg { height: 6px; background: var(--border-strong); flex: 1; border-radius: 1px; }
+.companies-page .mini-bar .seg.on { background: var(--rust); }
+
+/* Priority toggle */
+.companies-page .priority-toggle {
+  display: inline-flex; align-items: center; gap: .3rem;
+  font-family: var(--font-display); font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+  padding: .2rem .5rem; border-radius: 100px; border: 1px solid var(--border-strong);
+  background: var(--bg); color: var(--text-dim); cursor: pointer; margin-top: .35rem;
+}
+.companies-page .priority-toggle.is-priority { border-color: var(--rust); color: var(--rust); background: var(--rust-dim); }
+
+/* View profile affordance */
+.companies-page .cc-view-link {
+  display: flex; align-items: center; justify-content: center; gap: .4rem;
+  padding: .6rem .75rem; font-family: var(--font-display); font-size: 11px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--text-mid); border-top: 1px solid var(--border);
+  margin-top: auto; background: var(--bg); transition: background .15s, color .15s;
+  border-radius: 0 0 4px 4px;
+}
+.companies-page .company-card:hover .cc-view-link { color: #fff; background: var(--rust); }
+
+/* Mobile column collapse for grid card */
+@media (max-width: 720px) {
+  .companies-page .company-card { grid-template-columns: 1fr; }
+  .companies-page .cc-left, .companies-page .cc-mid { border-right: none; border-bottom: 1px solid var(--border); }
+  .companies-page .page { padding: 1.25rem 1rem 3rem; }
+  .companies-page .page-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+}
+
+/* Wireframe annotation labels are kept in markup but hidden */
+.companies-page .wf-note { display: none !important; }
+
+/* Signed-percentage colour coding on company cards. Applied by
+   colorizeFinancials() in CompaniesShell.tsx — wraps any +X% or -X% in
+   the static card HTML so growth reads green and decline reads rust at a
+   glance. Plain percentages without a sign stay neutral. */
+.companies-page .fin-pos {
+  color: var(--color-green);
+  font-weight: 600;
+}
+.companies-page .fin-neg {
+  color: var(--color-rust);
+  font-weight: 600;
+}

@@ -1,0 +1,129 @@
+.ask-page {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  min-height: 100vh;
+}
+
+/* Outer container — wider to accommodate two columns */
+.ask-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 28px 28px 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Hero header */
+.ask-hero {
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 0;
+}
+.ask-hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 10px 0 8px;
+  color: var(--color-text);
+}
+.ask-hero .hero-sub {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  max-width: 56ch;
+  margin: 0;
+  font-weight: 400;
+}
+.ask-hero .scope-tag {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 0.2rem 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-rust);
+  border: 1px solid var(--color-rust-dim);
+  border-radius: var(--radius-pill);
+}
+
+/* Two-column body */
+.ask-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 28px;
+  align-items: start;
+  padding-top: 20px;
+  flex: 1;
+}
+
+/* Chat column — tall, scrolls internally */
+.ask-chat-col {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 180px);
+}
+
+/* Info cards sidebar — sticky within the page */
+.ask-sidebar-col {
+  position: sticky;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding-bottom: 28px;
+}
+.ask-sidebar-col::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tablet: narrow sidebar */
+@media (max-width: 960px) {
+  .ask-body {
+    grid-template-columns: minmax(0, 1fr) 240px;
+    gap: 20px;
+  }
+}
+
+/* Mobile: stack vertically, chat first */
+@media (max-width: 700px) {
+  .ask-container {
+    padding: 18px 16px 0;
+  }
+  .ask-body {
+    grid-template-columns: 1fr;
+    padding-top: 16px;
+    gap: 0;
+  }
+  .ask-chat-col {
+    min-height: 65vh;
+  }
+  .ask-sidebar-col {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+    margin-top: 8px;
+  }
+  .ask-hero h1 {
+    font-size: clamp(1.5rem, 7vw, 1.9rem);
+  }
+  .ask-hero .hero-sub {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ask-container {
+    padding: 14px 14px 0;
+  }
+}

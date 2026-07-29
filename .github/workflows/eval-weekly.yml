@@ -1,0 +1,44 @@
+name: Ask Rachel — weekly eval
+
+on:
+  # Manual only. A fork has no deployed instance to evaluate and no Redis
+  # secrets, so a scheduled run would fail on every clone of this repo.
+  # Re-enable the weekly cron once ASK_BASE_URL points at your deployment
+  # and KV_REST_API_URL / KV_REST_API_TOKEN are set as repository secrets:
+  #   schedule:
+  #     - cron: "0 3 * * 1"   # Monday 03:00 UTC
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: "Override ASK_BASE_URL (default your-domain.example)"
+        required: false
+        default: "https://your-domain.example"
+
+jobs:
+  run-eval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      ASK_BASE_URL: ${{ github.event.inputs.base_url || 'https://your-domain.example' }}
+      KV_REST_API_URL: ${{ secrets.KV_REST_API_URL }}
+      KV_REST_API_TOKEN: ${{ secrets.KV_REST_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Run eval, upload to Redis, gate on 0.98 grounded-and-cited
+        run: npx tsx scripts/eval/run-eval.ts --concurrency 2 --upload --fail-below 0.98
+
+      - name: Upload eval artefacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-results
+          path: scripts/eval/results/
+          retention-days: 90

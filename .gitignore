@@ -1,0 +1,33 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+
+# env files
+.env
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+# vercel
+.vercel/
+
+# clerk (can contain keys)
+/.clerk/
+
+# ingested source documents — do not commit filings you don't own
+data/pdf-manifest.json
+data/corpus/
+*.pdf
+# ...except the published one-pager, which is a deliberate deliverable
+!docs/*-One-Pager.pdf
+
+# eval output
+scripts/eval/results/
+
+# misc
+.DS_Store
+*.pem

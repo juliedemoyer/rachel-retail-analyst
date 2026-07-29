@@ -1,0 +1,51 @@
+{
+  "name": "rachel-retail-analyst",
+  "version": "1.0.0",
+  "description": "Rachel — an autonomous retail and consumer intelligence analyst: IR document ingestion, grounded RAG, two-axis AI scoring, and a daily pulse.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.69",
+    "@ai-sdk/gateway": "^3.0.99",
+    "@ai-sdk/react": "^3.0.167",
+    "@clerk/nextjs": "^7.2.1",
+    "@sentry/nextjs": "^10.53.1",
+    "@upstash/redis": "^1.37.0",
+    "@upstash/vector": "^1.2.3",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/blob": "^2.3.3",
+    "ai": "^6.0.162",
+    "fast-xml-parser": "^5.7.1",
+    "gray-matter": "^4.0.3",
+    "html2canvas": "^1.4.1",
+    "lucide-react": "^1.8.0",
+    "next": "^16.2.3",
+    "node-html-parser": "^7.1.0",
+    "posthog-js": "^1.372.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "resend": "^6.12.2",
+    "unpdf": "^1.6.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "postcss": "^8.5.10",
+    "tailwindcss": "^4.2.2",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.6"
+  }
+}

@@ -1,0 +1,144 @@
+/* Priority page — row layout ported from public/app.html #watchlist
+   so the page matches the approved design. Variables
+   resolve via app/theme.css; classes are namespaced under
+   .priority-page so they don't leak into the rest of the product. */
+
+.priority-page { padding: 2rem 2.5rem; max-width: 1200px; margin: 0 auto; }
+
+.priority-page .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.priority-page .eyebrow {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--color-text-mid, var(--text-mid));
+  margin-bottom: .5rem;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+.priority-page .eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.priority-page h1 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 .35rem 0;
+}
+
+.priority-page .btn {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  padding: .75rem 1.5rem;
+  display: inline-block;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+.priority-page .btn-primary {
+  background: var(--color-rust, var(--rust));
+  color: #fff;
+}
+.priority-page .btn-primary:hover {
+  background: var(--color-rust-deep, #8B3A1C);
+  color: #fff;
+}
+.priority-page .btn-secondary {
+  background: transparent;
+  color: var(--color-text, var(--text));
+  border-color: var(--color-border-strong, var(--border-strong));
+}
+.priority-page .btn-secondary:hover {
+  border-color: var(--color-text, var(--text));
+}
+.priority-page .btn-ghost {
+  background: transparent;
+  color: var(--color-text-mid, var(--text-mid));
+  padding: .5rem 1rem;
+  border-color: transparent;
+}
+.priority-page .btn-sm {
+  font-size: 10px;
+  padding: .45rem .85rem;
+}
+
+.priority-page .filter-pill {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .45rem .9rem;
+  background: var(--color-surface, var(--surface));
+  border: 1px solid var(--color-border-strong, var(--border-strong));
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+.priority-page .filter-pill.active {
+  background: var(--color-text, var(--text));
+  color: var(--color-bg, var(--bg));
+  border-color: var(--color-text, var(--text));
+}
+
+.priority-page .card {
+  background: var(--color-surface, var(--surface));
+  border: 1px solid var(--color-border, var(--border));
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.priority-page .watchlist-row {
+  background: var(--color-surface, var(--surface));
+  border: 1px solid var(--color-border, var(--border));
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  margin-bottom: .5rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  font-size: 13px;
+}
+.priority-page .watchlist-row .co-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+.priority-page .watchlist-row .co-name a {
+  color: inherit;
+  text-decoration: none;
+}
+.priority-page .watchlist-row .co-name a:hover {
+  color: var(--color-rust, var(--rust));
+}
+.priority-page .watchlist-row .next-earnings {
+  font-size: 11px;
+  color: var(--color-text-mid, var(--text-mid));
+  font-family: var(--font-display);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 720px) {
+  .priority-page { padding: 1.25rem 1rem; }
+  .priority-page .page-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .priority-page .watchlist-row { grid-template-columns: 1fr auto; }
+  .priority-page .watchlist-row .hide-mobile { display: none; }
+}

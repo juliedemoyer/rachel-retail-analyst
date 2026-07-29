@@ -1,0 +1,54 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "crons": [
+    {
+      "path": "/api/cron?job=ir-scrape",
+      "schedule": "0 0 * * *"
+    },
+    {
+      "path": "/api/cron?job=ir-extract",
+      "schedule": "0 1 * * *"
+    },
+    {
+      "path": "/api/cron?job=auto-approve-candidates",
+      "schedule": "0 2 * * *"
+    },
+    {
+      "path": "/api/cron?job=rss-poll",
+      "schedule": "0 7 * * *"
+    },
+    {
+      "path": "/api/cron?job=vendor-diff",
+      "schedule": "0 8 * * 1"
+    },
+    {
+      "path": "/api/pulse/refresh",
+      "schedule": "0 8 * * *"
+    },
+    {
+      "path": "/api/cron?job=bump-calendar",
+      "schedule": "30 23 * * *"
+    },
+    {
+      "path": "/api/cron?job=vault-to-pulse",
+      "schedule": "30 6 * * *"
+    },
+    {
+      "path": "/api/cron?job=topics-proposer",
+      "schedule": "0 6 * * 1"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/landing.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
