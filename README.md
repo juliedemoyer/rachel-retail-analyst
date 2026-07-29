@@ -1,5 +1,7 @@
 # RACHEL · Your 24/7 Retail Intelligence Analyst
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 **Live at [www.rachelretail.com](https://www.rachelretail.com)**
 
 > **Archival snapshot.** The shipped dataset (`data/companies/`) is frozen as
