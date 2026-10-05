@@ -5,6 +5,7 @@
  *   tsx --env-file=.env.local scripts/prune-stale-pulse.ts            # dry run, show what would be removed
  *   tsx --env-file=.env.local scripts/prune-stale-pulse.ts --apply    # actually delete
  *   tsx --env-file=.env.local scripts/prune-stale-pulse.ts --apply --max-age-days 7
+ *   tsx --env-file=.env.local scripts/prune-stale-pulse.ts --apply --remove-id <id>   # repeatable
  *
  * Removes any pulse item whose effective date (ts ?? date) is older than
  * --max-age-days (default 7), plus any item flagged as agent-posted that
@@ -31,7 +32,11 @@ function parseArgs() {
   const idx = process.argv.indexOf("--max-age-days");
   const maxAgeDays =
     idx >= 0 && process.argv[idx + 1] ? Number(process.argv[idx + 1]) : 7;
-  return { apply, maxAgeDays };
+  const removeIds: string[] = [];
+  process.argv.forEach((a, i) => {
+    if (a === "--remove-id" && process.argv[i + 1]) removeIds.push(process.argv[i + 1]);
+  });
+  return { apply, maxAgeDays, removeIds };
 }
 
 function itemTs(it: PulseItem): number {
@@ -42,7 +47,7 @@ function itemTs(it: PulseItem): number {
 }
 
 async function main() {
-  const { apply, maxAgeDays } = parseArgs();
+  const { apply, maxAgeDays, removeIds } = parseArgs();
   const cutoff = Date.now() - maxAgeDays * 24 * 60 * 60 * 1000;
 
   const type = await redis.type("rachel:pulse");
@@ -65,6 +70,10 @@ async function main() {
   const dropped: Array<{ reason: string; item: PulseItem }> = [];
 
   for (const it of items) {
+    if (it.id !== undefined && removeIds.includes(String(it.id))) {
+      dropped.push({ reason: "manual_remove_id", item: it });
+      continue;
+    }
     const t = itemTs(it);
     // Legacy agent-posted items used today's `date` regardless of source age,
     // so a missing real ts plus addedBy=rachel-agent is the smoking gun.
